@@ -1,0 +1,73 @@
+import { Input, Menu } from 'semantic-ui-react'
+import React, { useEffect, useState } from 'react'
+import logo from "../pictures/Gb-Logo.jpg";
+import '../styles/MainMenu.css'
+import { useFetcher } from 'react-router-dom';
+
+
+
+ const MainMenu = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+   
+    function getFirstWidth(){
+      var  searchMenuElement=document.getElementById("Search");
+        if(windowWidth<=768){
+              searchMenuElement!.style.display="none";
+            }else 
+            {
+              searchMenuElement!.style.display="block";
+            }
+    }
+
+      useEffect(() => {
+        getFirstWidth()
+      }, [])
+
+    useEffect(() => {
+      const handleResize = () => { 
+        var  searchMenuElement=document.getElementById("Search");
+        const newWidth = window.innerWidth;
+        if (newWidth<=768 && windowWidth<=768) {
+          searchMenuElement!.style.display="none";
+        }else 
+        {
+          searchMenuElement!.style.display="block";
+        }
+        setWindowWidth(newWidth);}
+  
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
+  return (
+    <Menu className="mainMenu" id="main-menu">
+        <img src={logo} width={50} height={50} />
+        <Menu.Item
+          name='Blogs'
+        >
+          Blogs
+        </Menu.Item>
+
+        <Menu.Item
+          name='Authors'
+        >
+          Authors
+        </Menu.Item>
+
+        <Menu.Item
+          name='BookMarks'
+        >
+          Bookmark
+        </Menu.Item>
+
+        <Menu.Menu position='right' id="Search">
+            <Menu.Item>
+              <Input icon='search' placeholder='Search...' />
+            </Menu.Item>
+          </Menu.Menu>
+      </Menu>
+  )
+}
+
+export default MainMenu;
+

@@ -1,0 +1,15 @@
+.button-default{
+    padding: 10px;
+    background-color:#0C2C3A !important;
+    color:white !important;
+
+}
+.button-default:hover{
+    opacity: 0.9;
+}
+h1{
+    Padding:10px !important;
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    color:#2f6476 !important;
+}

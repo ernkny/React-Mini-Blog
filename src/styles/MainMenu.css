@@ -1,0 +1,15 @@
+.mainMenu{
+    padding:10px;
+    text-align: center;
+    background-color:#0C2C3A !important;
+    
+}
+.mainMenu > div{
+    color:white !important;
+    font-size: 1.2rem;
+    font-weight: 800 !important;
+
+}
+.mainMenu > div:hover{
+    cursor: pointer;
+}
