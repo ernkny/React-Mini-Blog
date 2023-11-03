@@ -1,4 +1,5 @@
 .button-default{
+    
     padding: 10px;
     background-color:#0C2C3A !important;
     color:white !important;
@@ -13,3 +14,50 @@ h1{
     font-weight: bold !important;
     color:#2f6476 !important;
 }
+span{
+    text-shadow: 1px 1.5px 1.5px #202020; /
+}
+.btn-add{
+    border: 1px solid #0e4a63 !important;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px !important;
+    background-color: #e7f7fd !important;
+    margin-left:1rem !important;
+    float:left;
+    margin: 10px;
+
+}
+.btn-add a{
+    color:#0C2C3A !important;
+}
+.btn-detail{
+    background-color: #00467f !important;
+}
+.btn-bookmark{
+    background-color: rgb(126, 3, 3) !important;
+}
+.card-content-side{
+    background-color:#e7f7fd !important;
+}
+.card-box-shadow{
+    box-shadow: #0C2C3A 0px 2px 1px, rgba(0, 0, 0, 0.09) 4px 4px 2px, rgba(0, 0, 0, 0.09) 4px 8px 4px, rgba(0, 0, 0, 0.09) 4px 16px 8px, rgba(0, 0, 0, 0.09) 2px 32px 16px !important;
+}
+.link-container {
+    padding:5px;
+    display: flex;
+    justify-content: start;
+  }
+  .link-container a {
+    border-radius: 5px;
+    flex: 1;
+    text-align: center; 
+    background: lightgray; 
+    line-height: 10px;
+    margin: 0; 
+    text-decoration: none;
+    color: black; 
+  }
+
+  .link-container a:not(:last-child) {
+    border-right: 1px solid #ccc;
+  }
+

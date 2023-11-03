@@ -33,13 +33,16 @@ import { API_URL } from '../Apis/API_URL';
               {blogs.slice(i, i + 4).map((blog, index) => (
                 <Grid.Column key={index} mobile={16} tablet={8} computer={4}>
                   <Card.Group>
-                    <Card>
+                    <Card className='card-box-shadow card-content-side'>
                       <Card.Content>
                         <Card.Header>{blog.Title}</Card.Header>
                         <Card.Meta>{blog.Type}</Card.Meta>
                         <Card.Description>{blog.Detail}</Card.Description>
                       </Card.Content>
-                      <Link className="button-default" to={`http://localhost:5173/BlogDetail/${blog.id}`}>Detail</Link>
+                      <div className="link-container">
+                        <Link color='blue' className="button-default btn-detail"  to={`http://localhost:5173/BlogDetail/${blog.id}`}>Detail</Link>
+                        <Link  color='blue' className="button-default btn-bookmark" to={`http://localhost:5173/BlogDetail/${blog.id}`}>Add Bookmark</Link> 
+                      </div>
                     </Card>
                   </Card.Group>
                 </Grid.Column>
@@ -52,8 +55,9 @@ import { API_URL } from '../Apis/API_URL';
 
   return (<>  
       <Container>
-          <h1>Blogs</h1>
+          <h1><span>Blogs</span></h1>
           <Grid columns={4} divided>
+          <Button className='button-default btn-add' ><a href="/BlogAdd" style={{color: "white"}}>Blog Add</a></Button>
           {renderBlogs()}
         </Grid>
           </Container>

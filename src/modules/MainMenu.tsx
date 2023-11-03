@@ -1,8 +1,7 @@
 import { Input, Menu } from 'semantic-ui-react'
 import React, { useEffect, useState } from 'react'
-import logo from "../pictures/Gb-Logo.jpg";
+import logo from "../pictures/Gb-Logo.png";
 import '../styles/MainMenu.css'
-import { useFetcher } from 'react-router-dom';
 
 
 
@@ -45,19 +44,19 @@ import { useFetcher } from 'react-router-dom';
         <Menu.Item
           name='Blogs'
         >
-          Blogs
+          <a style={{color: "white"}} href='/'><span>Blogs</span></a>
         </Menu.Item>
 
         <Menu.Item
           name='Authors'
         >
-          Authors
+          <a style={{color: "white"}} href='/'><span>Authors</span></a>
         </Menu.Item>
 
         <Menu.Item
           name='BookMarks'
         >
-          Bookmark
+          <span>Bookmark</span>
         </Menu.Item>
 
         <Menu.Menu position='right' id="Search">
