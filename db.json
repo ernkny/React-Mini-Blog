@@ -1,13 +1,109 @@
 {
   "Blogs": [
-    { "id": 1, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!" ,"Author": "Eren Kınay", "Type":"Author" },
-    { "id": 2, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!2" ,"Author": "Eren Kınay", "Type":"Author" },
-    { "id": 3, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!3" ,"Author": "Eren Kınay" , "Type":"Author"},
-    { "id": 4, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!4" ,"Author": "Eren Kınay", "Type":"Author" },
-    { "id": 5, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!5" ,"Author": "Eren Kınay", "Type":"Author" },
-    { "id": 6, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!6" ,"Author": "Eren Kınay" , "Type":"Author"},
-    { "id": 7, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!5" ,"Author": "Eren Kınay", "Type":"Author" },
-    { "id": 8, "Title": "Lorem ipsum dolor sit amet.","Detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!6" ,"Author": "Eren Kınay" , "Type":"Author"}
-   
+    {
+      "id": 1,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 2,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!2",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 3,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!3",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 4,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!4",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 5,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!5",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 6,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!6",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 7,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!5",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 8,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!6",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "Author": "Eren Kınay",
+      "Type": "Author",
+      "Title": "adsad",
+      "Detail": "sadsadsa",
+      "id": 9
+    },
+    {
+      "Author": "Eren Kınay",
+      "Type": "Author",
+      "Title": "adsad",
+      "Detail": "sadsadsa",
+      "id": 10
+    },
+    {
+      "Author": "Eren Kınay",
+      "Type": "Author",
+      "Title": "adsads",
+      "Detail": "adsad",
+      "id": 11
+    },
+    {
+      "Author": "Eren Kınay",
+      "Type": "Author",
+      "Title": "Deneme Eren ",
+      "Detail": "sadsadsad",
+      "id": 12
+    },
+    {
+      "Author": "Eren Kınay",
+      "Type": "Author",
+      "Title": "sadsadas",
+      "Detail": "adssadsa",
+      "id": 13
+    },
+    {
+      "Author": "Eren Kınay",
+      "Type": "Author",
+      "Title": "Denemeasd",
+      "Detail": "Denemeasd",
+      "id": 14
+    },
+    {
+      "Author": "Eren Kınay",
+      "Type": "Author",
+      "Title": "Denemeasdafasd",
+      "Detail": "sadsafsad",
+      "id": 16
+    }
   ]
 }

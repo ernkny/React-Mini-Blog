@@ -1,30 +1,58 @@
-import React from 'react'
-import { useForm, SubmitHandler } from "react-hook-form"
+
+import { useForm, SubmitHandler, useFormState } from "react-hook-form"
 import { Blog } from '../types/Blog'
+import { Button,Container,Form } from 'semantic-ui-react'
+import { BlogAddAsync } from '../Apis/BlogApiCalls'
+import { useHref, useNavigate } from "react-router"
+import { useEffect, useState } from "react"
 
 const BlogAddScreen = () => {
+  const [submitMessage, setSubmitMessage] = useState('');
+   const navigate= useNavigate();
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
       } = useForm<Blog>()
-      const onSubmit: SubmitHandler<Blog> = (data) => console.log(data)
-      console.log(watch("Detail")) // watch input value by passing the name of it
+      const onSubmit: SubmitHandler<Blog> = (data) =>{
+       
+        BlogAddAsync(data, 
+          (message) => { // onSuccess handler
+            setSubmitMessage(message);
+            
+          },
+          (message) => { // onError handler
+            setSubmitMessage(message);
+          }
+          
+      )
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    };
+     
+    const validateBlogData=(blog:Blog)=>{
+
+    }
 
   return (
-      /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-      <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <input {...register("Title")} />
-
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("Detail", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.Detail && <span>This field is required</span>}
-
-      <input type="submit" />
-    </form>
+    <Container>
+      <p>{submitMessage}</p>
+        <Form onSubmit={handleSubmit(onSubmit)} >
+          <Form.Field>
+            <label>Title</label>
+            <input placeholder='Title'  {...register("Title", { required: true })}/>
+            {errors.Title && <p>This field is required</p>}
+          </Form.Field>
+          <Form.Field>
+            <label>Detail</label> 
+            <textarea placeholder='Detail' {...register("Detail", { required: true })}/>
+            {errors.Detail && <p>This field is required</p>}
+          </Form.Field>
+          <Button className='button-default btn-add' type='submit'><p style={{color: "black"}}>Submit</p></Button>
+        </Form>
+    </Container>
   )
 }
 
