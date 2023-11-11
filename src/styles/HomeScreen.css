@@ -12,7 +12,7 @@ h1{
     Padding:10px !important;
     font-size: 2.5rem !important;
     font-weight: bold !important;
-    color:#2f6476 !important;
+    color:#3A4D39 !important;
 }
 span{
     text-shadow: 1px 1.5px 1.5px #202020; /
@@ -20,23 +20,20 @@ span{
 .btn-add{
     border: 1px solid #0e4a63 !important;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px !important;
-    background-color: #e7f7fd !important;
+    background-color: #4F6F52 !important;
     margin-left:1rem !important;
     float:left;
     margin: 10px;
 
 }
 .btn-add a{
-    color:#0C2C3A !important;
+    color: white !important;
 }
 .btn-detail{
-    background-color: #00467f !important;
-}
-.btn-bookmark{
-    background-color: rgb(126, 3, 3) !important;
+    background-color: #739072 !important;
 }
 .card-content-side{
-    background-color:#e7f7fd !important;
+    background-color:#ECE3CE !important;
 }
 .card-box-shadow{
     box-shadow: #0C2C3A 0px 2px 1px, rgba(0, 0, 0, 0.09) 4px 4px 2px, rgba(0, 0, 0, 0.09) 4px 8px 4px, rgba(0, 0, 0, 0.09) 4px 16px 8px, rgba(0, 0, 0, 0.09) 2px 32px 16px !important;

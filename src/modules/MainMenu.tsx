@@ -20,7 +20,7 @@ import '../styles/MainMenu.css'
 
       useEffect(() => {
         getFirstWidth()
-      }, [])
+      }, [windowWidth])
 
     useEffect(() => {
       const handleResize = () => { 
@@ -57,6 +57,18 @@ import '../styles/MainMenu.css'
           name='BookMarks'
         >
           <span>Bookmark</span>
+        </Menu.Item>
+
+        <Menu.Item
+          name='login'
+        >
+          <a style={{color: "white"}} href='/login'><span>Login</span></a>
+        </Menu.Item>
+
+        <Menu.Item
+          name='register'
+        >
+          <a style={{color: "white"}} href='/Register'><span>Register</span></a>
         </Menu.Item>
 
         <Menu.Menu position='right' id="Search">

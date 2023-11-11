@@ -105,5 +105,12 @@
       "Detail": "sadsafsad",
       "id": 16
     }
+  ],
+
+  "User":[
+    {
+      "Username":"Ernkny",
+      "Password":"123123"
+    }
   ]
 }

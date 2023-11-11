@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Card, Container, Grid } from 'semantic-ui-react';
 import  '../styles/HomeScreen.css'
 import { Blog } from '../types/Blog';
 import { getBlogs } from '../Apis/BlogApiCalls';
-import { BrowserRouter, Link, Route, Router, Routes } from 'react-router-dom';
-import BlogDetailScreen from './BlogDetailScreen';
-import { API_URL } from '../Apis/API_URL';
-
-
-
+import { Link } from 'react-router-dom';
 
 
  const HomeScreen = () => {
@@ -27,21 +22,22 @@ import { API_URL } from '../Apis/API_URL';
 
     const renderBlogs = () => {
         const rows = [];
+        
         for (let i = 0; i < blogs.length; i += 4) {
           rows.push(
-            <Grid.Row key={i}>
+            <Grid.Row key={i} centered>
               {blogs.slice(i, i + 4).map((blog, index) => (
                 <Grid.Column key={index} mobile={16} tablet={8} computer={4}>
-                  <Card.Group>
-                    <Card className='card-box-shadow card-content-side'>
+                  <Card.Group id="blog-card" className="d-flex justify-content-center ">
+                    <Card className='card-box-shadow card-content-side' >
                       <Card.Content>
                         <Card.Header>{blog.Title}</Card.Header>
-                        <Card.Meta>{blog.Type}</Card.Meta>
+                        <Card.Meta>{blog.Author}</Card.Meta>
                         <Card.Description>{blog.Detail}</Card.Description>
                       </Card.Content>
                       <div className="link-container">
                         <Link color='blue' className="button-default btn-detail"  to={`http://localhost:5173/BlogDetail/${blog.id}`}>Detail</Link>
-                        <Link  color='blue' className="button-default btn-bookmark" to={`http://localhost:5173/BlogDetail/${blog.id}`}>Add Bookmark</Link> 
+                        <Link  color='blue' className="button-default" to={`http://localhost:5173/BlogDetail/${blog.id}`}>Add Bookmark</Link> 
                       </div>
                     </Card>
                   </Card.Group>
@@ -54,12 +50,13 @@ import { API_URL } from '../Apis/API_URL';
       };
 
   return (<>  
-      <Container>
-          <h1><span>Blogs</span></h1>
-          <Grid columns={4} divided>
-          <Button className='button-default btn-add' ><a href="/BlogAdd" style={{color: "white"}}>Blog Add</a></Button>
-          {renderBlogs()}
-        </Grid>
+     
+        <Container>
+            <h1 ><span>Blogs</span></h1>
+            <Grid columns={4} divided>
+            <Button className='button-default btn-add' ><a href="/BlogAdd" style={{color: "white"}}>Blog Add</a></Button>
+            {renderBlogs()}
+            </Grid>
           </Container>
       </>
 

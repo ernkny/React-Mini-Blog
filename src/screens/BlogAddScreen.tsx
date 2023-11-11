@@ -5,6 +5,7 @@ import { Button,Container,Form } from 'semantic-ui-react'
 import { BlogAddAsync } from '../Apis/BlogApiCalls'
 import { useHref, useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+import "../styles/BlogAddScreen.css"
 
 const BlogAddScreen = () => {
   const [submitMessage, setSubmitMessage] = useState('');
@@ -39,7 +40,7 @@ const BlogAddScreen = () => {
   return (
     <Container>
       <p>{submitMessage}</p>
-        <Form onSubmit={handleSubmit(onSubmit)} >
+        <Form onSubmit={handleSubmit(onSubmit)} className="form-content-side form-box-shadow" >
           <Form.Field>
             <label>Title</label>
             <input placeholder='Title'  {...register("Title", { required: true })}/>
@@ -50,7 +51,7 @@ const BlogAddScreen = () => {
             <textarea placeholder='Detail' {...register("Detail", { required: true })}/>
             {errors.Detail && <p>This field is required</p>}
           </Form.Field>
-          <Button className='button-default btn-add' type='submit'><p style={{color: "black"}}>Submit</p></Button>
+          <Button  className='button-default btn-submit' type='submit'>Submit</Button>
         </Form>
     </Container>
   )
