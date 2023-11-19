@@ -1,5 +1,5 @@
 import { Input, Menu } from 'semantic-ui-react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from "../pictures/Gb-Logo.png";
 import '../styles/MainMenu.css'
 
