@@ -56,7 +56,7 @@ import '../styles/MainMenu.css'
         <Menu.Item
           name='BookMarks'
         >
-          <span>Bookmark</span>
+           <a style={{color: "white"}} href='/'><span>Bookmark</span></a>
         </Menu.Item>
 
         <Menu.Item

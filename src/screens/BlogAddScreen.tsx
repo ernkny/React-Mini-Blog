@@ -1,45 +1,51 @@
-
-import { useForm, SubmitHandler, useFormState } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
 import { Blog } from '../types/Blog'
 import { Button,Container,Form } from 'semantic-ui-react'
-import { BlogAddAsync } from '../Apis/BlogApiCalls'
-import { useHref, useNavigate } from "react-router"
-import { useEffect, useState } from "react"
+import { useBlogAddMutation } from '../Apis/services/BlogServiceApi';
 import "../styles/BlogAddScreen.css"
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const BlogAddScreen = () => {
-  const [submitMessage, setSubmitMessage] = useState('');
-   const navigate= useNavigate();
+  const [addBlog] = useBlogAddMutation();
+  const AlertSwal = withReactContent(Swal);
+
+  const ShowSuccessAlert = () => {
+    AlertSwal.fire({
+      title: <p>Blog Added</p>,
+      text: 'Blog added to page.',
+      icon: 'success',
+      timer: 3000,
+    });
+  };
+
+  const ShowErrorAlert = () => {
+    AlertSwal.fire({
+      title: <p>Error</p>,
+      text: 'Blog Cannot Added To Page',
+      icon: 'error',
+      timer: 3000,
+    });
+  };
+
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
+        reset,
       } = useForm<Blog>()
-      const onSubmit: SubmitHandler<Blog> = (data) =>{
-       
-        BlogAddAsync(data, 
-          (message) => { // onSuccess handler
-            setSubmitMessage(message);
-            
-          },
-          (message) => { // onError handler
-            setSubmitMessage(message);
-          }
-          
-      )
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
+      const onSubmit: SubmitHandler<Blog> = async (data) =>{
+        try {
+          await addBlog(data).unwrap();
+          ShowSuccessAlert();
+          reset()
+        } catch (error) {
+          ShowErrorAlert();
+        } 
     };
      
-    const validateBlogData=(blog:Blog)=>{
-
-    }
-
   return (
     <Container>
-      <p>{submitMessage}</p>
         <Form onSubmit={handleSubmit(onSubmit)} className="form-content-side form-box-shadow" >
           <Form.Field>
             <label>Title</label>

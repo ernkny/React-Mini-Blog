@@ -55,62 +55,12 @@
       "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!6",
       "Author": "Eren Kınay",
       "Type": "Author"
-    },
-    {
-      "Author": "Eren Kınay",
-      "Type": "Author",
-      "Title": "adsad",
-      "Detail": "sadsadsa",
-      "id": 9
-    },
-    {
-      "Author": "Eren Kınay",
-      "Type": "Author",
-      "Title": "adsad",
-      "Detail": "sadsadsa",
-      "id": 10
-    },
-    {
-      "Author": "Eren Kınay",
-      "Type": "Author",
-      "Title": "adsads",
-      "Detail": "adsad",
-      "id": 11
-    },
-    {
-      "Author": "Eren Kınay",
-      "Type": "Author",
-      "Title": "Deneme Eren ",
-      "Detail": "sadsadsad",
-      "id": 12
-    },
-    {
-      "Author": "Eren Kınay",
-      "Type": "Author",
-      "Title": "sadsadas",
-      "Detail": "adssadsa",
-      "id": 13
-    },
-    {
-      "Author": "Eren Kınay",
-      "Type": "Author",
-      "Title": "Denemeasd",
-      "Detail": "Denemeasd",
-      "id": 14
-    },
-    {
-      "Author": "Eren Kınay",
-      "Type": "Author",
-      "Title": "Denemeasdafasd",
-      "Detail": "sadsafsad",
-      "id": 16
     }
   ],
-
-  "User":[
+  "User": [
     {
-      "Username":"Ernkny",
-      "Password":"123123"
+      "Username": "Ernkny",
+      "Password": "123123"
     }
   ]
 }

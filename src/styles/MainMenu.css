@@ -10,7 +10,7 @@
     font-weight: 800 !important;
 
 }
-.mainMenu > div:hover{
+.mainMenu a :hover{
     cursor: pointer;
-    opacity: 0.7;
+    opacity: 0.8;
 }
