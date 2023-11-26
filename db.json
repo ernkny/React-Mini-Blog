@@ -1,0 +1,66 @@
+{
+  "Blogs": [
+    {
+      "id": 1,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 2,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!2",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 3,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!3",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 4,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!4",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 5,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!5",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 6,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!6",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 7,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!5",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    },
+    {
+      "id": 8,
+      "Title": "Lorem ipsum dolor sit amet.",
+      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!6",
+      "Author": "Eren Kınay",
+      "Type": "Author"
+    }
+  ],
+  "User": [
+    {
+      "Username": "Ernkny",
+      "Password": "123123"
+    }
+  ]
+}
