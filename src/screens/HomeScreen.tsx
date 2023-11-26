@@ -1,5 +1,4 @@
 import { Button, Card, Container, Grid } from 'semantic-ui-react';
-<<<<<<< HEAD
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { confirmAlert } from 'react-confirm-alert';
@@ -7,17 +6,12 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import  '../styles/HomeScreen.css'
 import { Link } from 'react-router-dom';
 import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogServiceApi';
-=======
-import  '../styles/HomeScreen.css'
-import { Link } from 'react-router-dom';
-import { useGetBlogsQuery } from '../Apis/services/BlogServiceApi';
->>>>>>> 523778f8f68e3d03c9361b8fd20f343d3671bce8
+
 
 
  const HomeScreen = () => {
 
   const { data, error, isLoading } = useGetBlogsQuery();
-<<<<<<< HEAD
   const [deleteBlogMutation] = useBlogDeleteMutation();
 
   const confirmDelete = (id:number) => {
@@ -45,8 +39,7 @@ import { useGetBlogsQuery } from '../Apis/services/BlogServiceApi';
       ]
     });
   };
-=======
->>>>>>> 523778f8f68e3d03c9361b8fd20f343d3671bce8
+
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error</div>;
@@ -63,10 +56,7 @@ import { useGetBlogsQuery } from '../Apis/services/BlogServiceApi';
                     <Card.Group id="blog-card" className="d-flex justify-content-center ">
                       <Card className='card-box-shadow card-content-side' >
                         <Card.Content>
-<<<<<<< HEAD
                         <Card.Header><FontAwesomeIcon className="link-delete" icon={faTimes} size="lg" color="#B31312" onClick={() => confirmDelete(data.id)}/></Card.Header>
-=======
->>>>>>> 523778f8f68e3d03c9361b8fd20f343d3671bce8
                           <Card.Header>{data.Title}</Card.Header>
                           <Card.Meta>{data.Author}</Card.Meta>
                           <Card.Description>{data.Detail}</Card.Description>

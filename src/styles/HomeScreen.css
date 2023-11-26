@@ -54,12 +54,12 @@ span{
   .link-container a:not(:last-child) {
     border-right: 1px solid #ccc;
   }
-<<<<<<< HEAD
+  
   .link-delete{
     cursor: pointer;
     float:right;
     padding:10px;
   }
-=======
->>>>>>> 523778f8f68e3d03c9361b8fd20f343d3671bce8
+
+  
 

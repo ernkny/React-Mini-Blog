@@ -12,18 +12,11 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
-<<<<<<< HEAD
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^1.9.7",
     "bootstrap": "^5.3.2",
     "react": "^18.2.0",
-    "react-confirm-alert": "^3.0.6",
-=======
-    "@reduxjs/toolkit": "^1.9.7",
-    "bootstrap": "^5.3.2",
-    "react": "^18.2.0",
->>>>>>> 523778f8f68e3d03c9361b8fd20f343d3671bce8
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-redux": "^8.1.3",

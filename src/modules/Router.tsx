@@ -15,10 +15,7 @@ const Router = () => {
                 <Route path="/BlogAdd" Component={BlogAddScreen} />
                 <Route path="/Login" Component={LoginScreen} />
                 <Route path="/Register" Component={RegisterScreen} />
-<<<<<<< HEAD
                 <Route path="/BlogDelete/:id" Component={RegisterScreen}/>
-=======
->>>>>>> 523778f8f68e3d03c9361b8fd20f343d3671bce8
                 </Routes>
         </BrowserRouter>
       </>
