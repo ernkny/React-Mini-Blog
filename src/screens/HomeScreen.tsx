@@ -1,10 +1,10 @@
 import { Button, Card, Container, Grid } from 'semantic-ui-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import  '../styles/HomeScreen.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogServiceApi';
 
 
@@ -13,6 +13,10 @@ import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogSe
 
   const { data, error, isLoading } = useGetBlogsQuery();
   const [deleteBlogMutation] = useBlogDeleteMutation();
+
+  const navigateToUpdate=(id:number)=>{
+    useNavigate()
+  }
 
   const confirmDelete = (id:number) => {
     confirmAlert({
@@ -40,7 +44,6 @@ import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogSe
     });
   };
 
-
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error</div>;
 
@@ -48,15 +51,16 @@ import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogSe
       if(data!== undefined){
           const rows = [];
           console.log(data)
-          for (let i = 0; i < data.length; i += 4) {
+          for (let i = 0; i < data.length; i += 2) {
             rows.push(
               <Grid.Row key={i} centered>
-                {data.slice(i, i + 4).map((data, index) => (
-                  <Grid.Column key={index} mobile={16} tablet={8} computer={4}>
-                    <Card.Group id="blog-card" className="d-flex justify-content-center ">
+                {data.slice(i, i + 2).map((data, index) => (
+                  <Grid.Column key={index} mobile={16} tablet={16} computer={8}>
+                    <Card.Group id="blog-card" className="d-flex justify-content-center " >
                       <Card className='card-box-shadow card-content-side' >
                         <Card.Content>
-                        <Card.Header><FontAwesomeIcon className="link-delete" icon={faTimes} size="lg" color="#B31312" onClick={() => confirmDelete(data.id)}/></Card.Header>
+                        <Card.Header><FontAwesomeIcon className="link-delete" icon={faTimes} size="lg" color="#862B0D" onClick={() => confirmDelete(data.id)}/></Card.Header>
+                        <Card.Header><FontAwesomeIcon className="link-delete" icon={faPenToSquare} size="lg" color="#B3A492" onClick={() => navigateToUpdate(data.id)} /></Card.Header>
                           <Card.Header>{data.Title}</Card.Header>
                           <Card.Meta>{data.Author}</Card.Meta>
                           <Card.Description>{data.Detail}</Card.Description>

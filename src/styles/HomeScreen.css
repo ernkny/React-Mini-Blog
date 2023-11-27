@@ -30,6 +30,7 @@ span{
     background-color: #739072 !important;
 }
 .card-content-side{
+    width: 100% !important;
     background-color:#ECE3CE !important;
 }
 .card-box-shadow{
