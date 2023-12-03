@@ -23,6 +23,14 @@ export const BlogsApi = createApi({
             }),
             invalidatesTags: ['Blogs']
         }),
+        BlogUpdate: builder.mutation({
+            query: (newBlog) => ({
+                url: '/Blogs',
+                method: 'PATCH',
+                body: newBlog,
+            }),
+            invalidatesTags: ['Blogs']
+        }),
         BlogDelete: builder.mutation({
             query: (id) => ({
                 url: `/Blogs/${id}`,
@@ -32,6 +40,6 @@ export const BlogsApi = createApi({
         }),
     })
 });
-export const { useGetBlogsQuery,useGetBlogDetailQuery,useBlogAddMutation,useBlogDeleteMutation } = BlogsApi;
+export const { useGetBlogsQuery,useGetBlogDetailQuery,useBlogAddMutation,useBlogDeleteMutation, useBlogUpdateMutation} = BlogsApi;
 
 

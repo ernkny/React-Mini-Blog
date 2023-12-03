@@ -13,9 +13,11 @@ import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogSe
 
   const { data, error, isLoading } = useGetBlogsQuery();
   const [deleteBlogMutation] = useBlogDeleteMutation();
+  let navigate = useNavigate();
 
   const navigateToUpdate=(id:number)=>{
-    useNavigate()
+    console.log(id);
+    navigate(`/BlogUpdate/${id}`);
   }
 
   const confirmDelete = (id:number) => {
@@ -50,7 +52,6 @@ import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogSe
     const renderBlogs = () => {
       if(data!== undefined){
           const rows = [];
-          console.log(data)
           for (let i = 0; i < data.length; i += 2) {
             rows.push(
               <Grid.Row key={i} centered>

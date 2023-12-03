@@ -4,6 +4,7 @@ import BlogDetailScreen from '../screens/BlogDetailScreen'
 import BlogAddScreen from '../screens/BlogAddScreen'
 import LoginScreen from '../screens/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen'
+import BlogUpdateScreen from '../screens/BlogUpdateScreen'
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
                 <Route path="/Login" Component={LoginScreen} />
                 <Route path="/Register" Component={RegisterScreen} />
                 <Route path="/BlogDelete/:id" Component={RegisterScreen}/>
+                <Route path="/BlogUpdate/:id" Component={BlogUpdateScreen}/>
                 </Routes>
         </BrowserRouter>
       </>
