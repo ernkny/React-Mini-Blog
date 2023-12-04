@@ -24,10 +24,10 @@ export const BlogsApi = createApi({
             invalidatesTags: ['Blogs']
         }),
         BlogUpdate: builder.mutation({
-            query: (newBlog) => ({
-                url: '/Blogs',
+            query: (updatedBlog) => ({
+                url: `/Blogs/${updatedBlog.id}`,
                 method: 'PATCH',
-                body: newBlog,
+                body: updatedBlog,
             }),
             invalidatesTags: ['Blogs']
         }),
