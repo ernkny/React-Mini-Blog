@@ -5,7 +5,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import  '../styles/HomeScreen.css'
 import { Link, useNavigate } from 'react-router-dom';
-import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/BlogServiceApi';
+import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
 
 
 

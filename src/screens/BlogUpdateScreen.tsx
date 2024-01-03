@@ -1,5 +1,5 @@
 import {  useNavigate, useParams } from 'react-router-dom';
-import { useBlogUpdateMutation, useGetBlogDetailQuery } from '../Apis/services/BlogServiceApi';
+import { useBlogUpdateMutation, useGetBlogDetailQuery } from '../Apis/services/Blogs/blogApiSlice';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Button, Container, Form } from 'semantic-ui-react';
@@ -16,7 +16,6 @@ const BlogUpdateScreen = () => {
 
     useEffect(() => {
       if (data) {
-        console.log(data)
         setValue("id", data.id, { shouldValidate: true });
         setValue("Title", data.Title, { shouldValidate: true });
         setValue("Detail", data.Detail, { shouldValidate: true });

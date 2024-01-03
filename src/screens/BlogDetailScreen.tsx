@@ -1,6 +1,6 @@
 import {  useParams } from 'react-router-dom';
 import { Container, Form, Message, Header } from 'semantic-ui-react';
-import { useGetBlogDetailQuery } from '../Apis/services/BlogServiceApi';
+import { useGetBlogDetailQuery } from '../Apis/services/Blogs/blogApiSlice';
 
 
  const BlogDetailScreen = () => {

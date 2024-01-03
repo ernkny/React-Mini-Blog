@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Blog } from '../types/Blog'
 import { Button,Container,Form } from 'semantic-ui-react'
-import { useBlogAddMutation } from '../Apis/services/BlogServiceApi';
+import { useBlogAddMutation } from '../Apis/services/Blogs/blogApiSlice';
 import "../styles/BlogAddScreen.css"
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
