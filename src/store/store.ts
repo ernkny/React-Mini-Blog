@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import storage from "redux-persist/lib/storage";
 import { apiSlice } from '../Apis/services/ApiSlice'
 import {  persistReducer,persistStore } from "redux-persist";
+import blogs,{ blogPersistConfig } from './Slices/blogSlice';
 
 const rootPersistConfig={
   key:"root",
@@ -12,6 +13,7 @@ const rootPersistConfig={
 
 const rootReducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
+  blogs:persistReducer(blogPersistConfig,blogs)
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);

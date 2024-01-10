@@ -6,6 +6,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import  '../styles/HomeScreen.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
+import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
+import { useEffect } from 'react';
 
 
 
@@ -13,10 +15,14 @@ import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/Blogs/
 
   const { data, error, isLoading } = useGetBlogsQuery();
   const [deleteBlogMutation] = useBlogDeleteMutation();
+  const searhedText=useBlogSearchQuery()
   let navigate = useNavigate();
+  useEffect(() => {
+   console.log(searhedText)
+  }, [searhedText])
+  
 
   const navigateToUpdate=(id:number)=>{
-    console.log(id);
     navigate(`/BlogUpdate/${id}`);
   }
 

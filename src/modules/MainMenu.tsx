@@ -1,12 +1,14 @@
-import { Input, Menu } from 'semantic-ui-react'
+import { Button, Input, Menu } from 'semantic-ui-react'
 import { useEffect, useState } from 'react'
 import logo from "../pictures/Gb-Logo.png";
 import '../styles/MainMenu.css'
+import { setQueryTextForSearch } from '../store/Actions/blogActions';
 
 
 
  const MainMenu = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [queryText,setQueryText]=useState("");
    
     function getFirstWidth(){
       var  searchMenuElement=document.getElementById("Search");
@@ -17,7 +19,13 @@ import '../styles/MainMenu.css'
               searchMenuElement!.style.display="block";
             }
     }
-
+    const searchQueryText=()=>{
+      setQueryTextForSearch(queryText)
+    }
+    
+    useEffect(() => {
+    }, [queryText])
+    
       useEffect(() => {
         getFirstWidth()
       }, [windowWidth])
@@ -73,7 +81,8 @@ import '../styles/MainMenu.css'
 
         <Menu.Menu position='right' id="Search">
             <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
+              <Input placeholder='Search...' onChange={(e:any)=>setQueryText(e.target.value as string)}/>
+              <Button icon="search" className='mr-2' onClick={searchQueryText}/>
             </Menu.Item>
           </Menu.Menu>
       </Menu>

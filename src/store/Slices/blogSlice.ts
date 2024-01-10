@@ -3,26 +3,31 @@ import storage from "redux-persist/lib/storage";
 
 
 type InitialState = {
+  blogSearchQuery:string
   };
   
   const initialState: InitialState = {
+    blogSearchQuery:""
   };
 
   const blogSlice = createSlice({
     name: "blogs",
     initialState,
     reducers: {
-
+      _setBlogQueryText:(state,action)=>{
+          state.blogSearchQuery=action.payload
+      }
     }
     });
   
   export const blogPersistConfig = {
-    key: "blog",
+    key: "blogs",
     storage: storage,
     blacklist: [
     ],
   };
   
   export const {
+    _setBlogQueryText
   } = blogSlice.actions;
   export default blogSlice.reducer;
