@@ -7,7 +7,8 @@ import  '../styles/HomeScreen.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
 import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Blog } from '../types/Blog';
 
 
 
@@ -15,11 +16,21 @@ import { useEffect } from 'react';
 
   const { data, error, isLoading } = useGetBlogsQuery();
   const [deleteBlogMutation] = useBlogDeleteMutation();
-  const searhedText=useBlogSearchQuery()
+  const searchedText=useBlogSearchQuery()
+  const [filteredData, setFilteredData] = useState<Blog[]>(data!);
   let navigate = useNavigate();
   useEffect(() => {
-   console.log(searhedText)
-  }, [searhedText])
+    const filtered = data?.filter(item => {
+      const itemTextLowercased = item.Title.toLowerCase();
+      const searchTextLowercased = searchedText!.toLowerCase();
+      return itemTextLowercased.includes(searchTextLowercased);
+    });
+    console.log(data)
+    console.log(searchedText)
+    console.log(filtered)
+    setFilteredData(filtered!);
+
+  }, [searchedText])
   
 
   const navigateToUpdate=(id:number)=>{
@@ -56,25 +67,25 @@ import { useEffect } from 'react';
     if (error) return <div>Error</div>;
 
     const renderBlogs = () => {
-      if(data!== undefined){
+      if(filteredData!== undefined){
           const rows = [];
-          for (let i = 0; i < data.length; i += 2) {
+          for (let i = 0; i < filteredData.length; i += 2) {
             rows.push(
               <Grid.Row key={i} centered>
-                {data.slice(i, i + 2).map((data, index) => (
+                {filteredData.slice(i, i + 2).map((filteredData, index) => (
                   <Grid.Column key={index} mobile={16} tablet={16} computer={8}>
                     <Card.Group id="blog-card" className="d-flex justify-content-center " >
                       <Card className='card-box-shadow card-content-side' >
                         <Card.Content>
-                        <Card.Header><FontAwesomeIcon className="link-delete" icon={faTimes} size="lg" color="#862B0D" onClick={() => confirmDelete(data.id)}/></Card.Header>
-                        <Card.Header><FontAwesomeIcon className="link-delete" icon={faPenToSquare} size="lg" color="#B3A492" onClick={() => navigateToUpdate(data.id)} /></Card.Header>
-                          <Card.Header>{data.Title}</Card.Header>
-                          <Card.Meta>{data.Author}</Card.Meta>
-                          <Card.Description>{data.Detail}</Card.Description>
+                        <Card.Header><FontAwesomeIcon className="link-delete" icon={faTimes} size="lg" color="#862B0D" onClick={() => confirmDelete(filteredData.id)}/></Card.Header>
+                        <Card.Header><FontAwesomeIcon className="link-delete" icon={faPenToSquare} size="lg" color="#B3A492" onClick={() => navigateToUpdate(filteredData.id)} /></Card.Header>
+                          <Card.Header>{filteredData.Title}</Card.Header>
+                          <Card.Meta>{filteredData.Author}</Card.Meta>
+                          <Card.Description>{filteredData.Detail}</Card.Description>
                         </Card.Content>
                         <div className="link-container">
-                          <Link color='blue' className="button-default btn-detail"  to={`http://localhost:5173/BlogDetail/${data.id}`}>Detail</Link>
-                          <Link  color='blue' className="button-default" to={`http://localhost:5173/BlogDetail/${data.id}`}>Add Bookmark</Link> 
+                          <Link color='blue' className="button-default btn-detail"  to={`http://localhost:5173/BlogDetail/${filteredData.id}`}>Detail</Link>
+                          <Link  color='blue' className="button-default" to={`http://localhost:5173/BlogDetail/${filteredData.id}`}>Add Bookmark</Link> 
                         </div>
                       </Card>
                     </Card.Group>
