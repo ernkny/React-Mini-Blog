@@ -6,33 +6,16 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import  '../styles/HomeScreen.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
-import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
-import { useEffect, useState } from 'react';
-import { Blog } from '../types/Blog';
+import  filteredDataCustomHooks from '../customHooks/filteredData';
+
 
 
 
  const HomeScreen = () => {
-
-  const { data, error, isLoading } = useGetBlogsQuery();
+  const filteredData = filteredDataCustomHooks();
   const [deleteBlogMutation] = useBlogDeleteMutation();
-  const searchedText=useBlogSearchQuery()
-  const [filteredData, setFilteredData] = useState<Blog[]>(data!);
   let navigate = useNavigate();
-  useEffect(() => {
-    const filtered = data?.filter(item => {
-      const itemTextLowercased = item.Title.toLowerCase();
-      const searchTextLowercased = searchedText!.toLowerCase();
-      return itemTextLowercased.includes(searchTextLowercased);
-    });
-    console.log(data)
-    console.log(searchedText)
-    console.log(filtered)
-    setFilteredData(filtered!);
-
-  }, [searchedText])
   
-
   const navigateToUpdate=(id:number)=>{
     navigate(`/BlogUpdate/${id}`);
   }
@@ -47,7 +30,8 @@ import { Blog } from '../types/Blog';
           onClick: async () => {
             try {
               await deleteBlogMutation(id).unwrap();
-              useGetBlogsQuery()
+              useGetBlogsQuery();
+              
             } catch (error) {
               // Hata işleme
             }
@@ -62,9 +46,6 @@ import { Blog } from '../types/Blog';
       ]
     });
   };
-
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error</div>;
 
     const renderBlogs = () => {
       if(filteredData!== undefined){
