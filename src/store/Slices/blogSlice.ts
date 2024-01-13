@@ -23,7 +23,7 @@ type InitialState = {
   export const blogPersistConfig = {
     key: "blogs",
     storage: storage,
-    blacklist: ["blogSearchQuery"],
+    blacklist: [],
   };
   
   export const {

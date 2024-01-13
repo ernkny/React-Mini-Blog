@@ -7,7 +7,7 @@ import blogs,{ blogPersistConfig } from './Slices/blogSlice';
 const rootPersistConfig={
   key:"root",
   storage,
-  blacklist: ['blogSearchQuery'],
+  blacklist: [],
 }
 
 const rootReducer = combineReducers({

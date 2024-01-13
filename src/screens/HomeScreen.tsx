@@ -5,14 +5,14 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import  '../styles/HomeScreen.css'
 import { Link, useNavigate } from 'react-router-dom';
-import { useBlogDeleteMutation, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
+import { useBlogDeleteMutation } from '../Apis/services/Blogs/blogApiSlice';
 import  filteredDataCustomHooks from '../customHooks/filteredData';
 
 
 
 
  const HomeScreen = () => {
-  const filteredData = filteredDataCustomHooks();
+  const { filteredData, refetch } = filteredDataCustomHooks();
   const [deleteBlogMutation] = useBlogDeleteMutation();
   let navigate = useNavigate();
   
@@ -30,8 +30,7 @@ import  filteredDataCustomHooks from '../customHooks/filteredData';
           onClick: async () => {
             try {
               await deleteBlogMutation(id).unwrap();
-              useGetBlogsQuery();
-              
+              refetch()
             } catch (error) {
               // Hata işleme
             }
