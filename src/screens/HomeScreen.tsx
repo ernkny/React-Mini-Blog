@@ -61,7 +61,7 @@ import  filteredDataCustomHooks from '../customHooks/filteredData';
                         <Card.Header><FontAwesomeIcon className="link-delete" icon={faPenToSquare} size="lg" color="#B3A492" onClick={() => navigateToUpdate(filteredData.id)} /></Card.Header>
                           <Card.Header>{filteredData.Title}</Card.Header>
                           <Card.Meta>{filteredData.Author}</Card.Meta>
-                          <Card.Description>{filteredData.Detail}</Card.Description>
+                          <Card.Description  dangerouslySetInnerHTML={{ __html: filteredData.Detail }}></Card.Description>
                         </Card.Content>
                         <div className="link-container">
                           <Link color='blue' className="button-default btn-detail"  to={`http://localhost:5173/BlogDetail/${filteredData.id}`}>Detail</Link>

@@ -5,6 +5,8 @@ import { useBlogAddMutation } from '../Apis/services/Blogs/blogApiSlice';
 import "../styles/BlogAddScreen.css"
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const BlogAddScreen = () => {
   const [addBlog] = useBlogAddMutation();
@@ -32,6 +34,7 @@ const BlogAddScreen = () => {
         register,
         handleSubmit,
         formState: { errors },
+        setValue,
         reset,
       } = useForm<Blog>()
       const onSubmit: SubmitHandler<Blog> = async (data) =>{
@@ -54,8 +57,16 @@ const BlogAddScreen = () => {
           </Form.Field>
           <Form.Field>
             <label>Detail</label> 
-            <textarea placeholder='Detail' {...register("Detail", { required: true })}/>
-            {errors.Detail && <p>This field is required</p>}
+            <div >
+                <CKEditor
+                    editor={ ClassicEditor }
+                    onChange={ ( event,editor ) => {
+                      setValue("Detail", editor.getData(), { shouldValidate: true });
+                    } }
+                />
+                 <input placeholder='Detail'  {...register("Detail", { required: true })} style={{display:"none"}}/>
+                 {errors.Detail && <p>This field is required</p>}
+            </div>
           </Form.Field>
           <Button  className='button-default btn-submit' type='submit'>Submit</Button>
         </Form>

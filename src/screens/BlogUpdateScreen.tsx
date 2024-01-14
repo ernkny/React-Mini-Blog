@@ -6,6 +6,8 @@ import { Button, Container, Form } from 'semantic-ui-react';
 import { useForm, SubmitHandler  } from "react-hook-form"
 import { Blog } from '../types/Blog';
 import { useEffect } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 const AlertSwal = withReactContent(Swal);
 
 const BlogUpdateScreen = () => {
@@ -73,10 +75,19 @@ const BlogUpdateScreen = () => {
                             {errors.Title && <p>This field is required</p>}
                         </Form.Field>
                         <Form.Field>
-                            <label>Detail</label> 
-                            <textarea  {...register("Detail", { required: true })}/>
-                            {errors.Detail && <p>This field is required</p>}
-                        </Form.Field>
+                      <label>Detail</label> 
+                      <div >
+                          <CKEditor
+                              editor={ ClassicEditor }
+                              data={data.Detail}
+                              onChange={ ( event,editor ) => {
+                                setValue("Detail", editor.getData(), { shouldValidate: true });
+                              } }
+                          />
+                          <input placeholder='Detail'  {...register("Detail", { required: true })} style={{display:"none"}}/>
+                          {errors.Detail && <p>This field is required</p>}
+                      </div>
+                    </Form.Field>
                         <Button  className='button-default btn-submit' type='submit'>Submit</Button>
                         </Form>
                     </Container>
