@@ -1,5 +1,4 @@
 import { _setBlogQueryText } from "../Slices/blogSlice";
-import { RootState } from "../store";
 import { store } from "../store";
 
 

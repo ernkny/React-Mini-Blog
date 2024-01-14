@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
 import { Blog } from '../types/Blog';
 import { useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
 import { setQueryTextForSearch } from '../store/Actions/blogActions';
 
 const filteredData = () => {
-  const [emptyStringData, setEmptyStringData] = useState<string>();
-  const { data, error, isLoading, refetch } = useGetBlogsQuery();
+  const { data, refetch } = useGetBlogsQuery();
   const [filteredData, setFilteredData] = useState<Blog[]>(data || []);
   const searchedText = useBlogSearchQuery();
   useEffect(() => {
