@@ -80,6 +80,11 @@ const BlogUpdateScreen = () => {
                           <CKEditor
                               editor={ ClassicEditor }
                               data={data.Detail}
+                              onReady={ editor => {
+                                editor.editing.view.change( writer => {
+                                  writer.setStyle( 'height', '250px', editor.editing.view.document.getRoot()!);
+                              } );;
+                            } }
                               onChange={ ( event,editor ) => {
                                 setValue("Detail", editor.getData(), { shouldValidate: true });
                               } }

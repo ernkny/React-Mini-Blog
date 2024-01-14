@@ -11,7 +11,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 const BlogAddScreen = () => {
   const [addBlog] = useBlogAddMutation();
   const AlertSwal = withReactContent(Swal);
-
+  
   const ShowSuccessAlert = () => {
     AlertSwal.fire({
       title: <p>Blog Added</p>,
@@ -46,7 +46,9 @@ const BlogAddScreen = () => {
           ShowErrorAlert();
         } 
     };
-     
+
+    
+   
   return (
     <Container>
         <Form onSubmit={handleSubmit(onSubmit)} className="form-content-side form-box-shadow" >
@@ -60,9 +62,15 @@ const BlogAddScreen = () => {
             <div >
                 <CKEditor
                     editor={ ClassicEditor }
+                    onReady={ editor => {
+                      editor.editing.view.change( writer => {
+                        writer.setStyle( 'height', '250px', editor.editing.view.document.getRoot()!);
+                    } );
+                  } }
                     onChange={ ( event,editor ) => {
                       setValue("Detail", editor.getData(), { shouldValidate: true });
                     } }
+                    
                 />
                  <input placeholder='Detail'  {...register("Detail", { required: true })} style={{display:"none"}}/>
                  {errors.Detail && <p>This field is required</p>}

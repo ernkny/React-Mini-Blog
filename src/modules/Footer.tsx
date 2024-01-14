@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-svg-core'
 const Footer = () => {
   return (<>
   
-            <div className="footer-clean">
+            <div className="footer-clean" style={{bottom:"0px"}}>
             <footer>
             <div className="container">
                 <div className="row justify-content-center">
