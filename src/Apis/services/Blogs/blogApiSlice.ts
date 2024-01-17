@@ -3,8 +3,8 @@ import { apiSlice } from "../ApiSlice";
 
 export const blogApiSlice=apiSlice.injectEndpoints({
     endpoints:builder=>({
-        GetBlogs: builder.query<Blog[], void>({
-            query: () => '/Blogs',
+        GetBlogs: builder.query<Blog[], number>({
+            query: (pageNumber) => `/Blogs?_start=${(pageNumber*10)-10}&_end=${pageNumber*10}`,
             providesTags: ['Blogs']
         }),
         GetBlogDetail: builder.query<Blog, string | number>({

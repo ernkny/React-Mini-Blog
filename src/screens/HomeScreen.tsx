@@ -7,6 +7,7 @@ import  '../styles/HomeScreen.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useBlogDeleteMutation } from '../Apis/services/Blogs/blogApiSlice';
 import  filteredDataCustomHooks from '../customHooks/filteredData';
+import { useState } from 'react';
 
 
 
@@ -48,6 +49,7 @@ import  filteredDataCustomHooks from '../customHooks/filteredData';
   };
 
     const renderBlogs = () => {
+      console.log(filteredData)
       if(filteredData!== undefined){
           const rows = [];
           for (let i = 0; i < filteredData.length; i += 2) {
