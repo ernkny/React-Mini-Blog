@@ -107,8 +107,8 @@ import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
                         <Card.Description dangerouslySetInnerHTML={{ __html: data.Detail }}></Card.Description>
                       </Card.Content>
                       <div className="link-container">
-                        <Link color='blue' className="button-default btn-detail" to={`http://localhost:5173/BlogDetail/${data.id}`}>Detail</Link>
-                        <Link color='blue' className="button-default" to={`http://localhost:5173/BlogDetail/${data.id}`}>Add Bookmark</Link>
+                        <Link color='blue' className="button-default btn-detail" target="_blank" to={`http://localhost:5173/BlogDetail/${data.id}`}>Detail</Link>
+                        <Link color='blue' className="button-default" target="_blank" to={`http://localhost:5173/BlogDetail/${data.id}`}>Add Bookmark</Link>
                       </div>
                     </Card>
                   </Card.Group>
