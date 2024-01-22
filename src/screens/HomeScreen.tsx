@@ -10,12 +10,13 @@ import  filteredDataCustomHooks from '../customHooks/filteredData';
 import { useEffect, useRef, useState } from 'react';
 import Loading from '../modules/Loading';
 import { Blog } from '../types/Blog';
+import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
 
 
 
 
  const HomeScreen = () => {
-  let [page, setPage] = useState(1)
+  let [page, setPage] = useState<number>(1)
   const [pageLoading,setPageLoading]=useState<boolean>(false);
   const { filteredData, refetch } = filteredDataCustomHooks(page);
   let [itemsToDisplay, setItemsToDisplay]= useState<Blog[]>(filteredData)
@@ -27,9 +28,10 @@ import { Blog } from '../types/Blog';
   const navigateToUpdate=(id:number)=>{
     navigate(`/BlogUpdate/${id}`);
   }
-
+    
   useEffect(() => 
   {
+    
     function handleScroll() {
       if (window.innerHeight+ window.scrollY >= document.body.scrollHeight) 
       {
@@ -37,21 +39,24 @@ import { Blog } from '../types/Blog';
         setTimeout(() => {
           setPageLoading(false)
           setPage(prevPage => prevPage + 1);
-          if(filteredData.length>0){
-            console.log("filteredData",filteredData)
-            setItemsToDisplay([...itemsToDisplay, ...filteredData])
-          }
+         
         }, 1000);
         
       }
     }
-
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
    
-  }, [page,pageLoading,filteredData]);
+  }, [pageLoading]);
+
+  useEffect(() => {
+    if(filteredData.length>0 && page!==1){
+      setItemsToDisplay([...itemsToDisplay, ...filteredData])
+    }
+  }, [filteredData])
+  
  
   const confirmDelete = (id:number) => {
     confirmAlert({

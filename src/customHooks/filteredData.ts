@@ -16,7 +16,6 @@ const filteredData = (pageNumber:number) => {
 
   useEffect(() => 
   {
-
     const filtered = data?.filter(item => {
       const itemTextLowercased = item.Title.toLowerCase();
       const searchTextLowercased = searchedText?.toLowerCase() || '';
