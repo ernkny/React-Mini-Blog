@@ -10,10 +10,6 @@ import  filteredDataCustomHooks from '../customHooks/filteredData';
 import { useEffect, useRef, useState } from 'react';
 import Loading from '../modules/Loading';
 import { Blog } from '../types/Blog';
-import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
-
-
-
 
  const HomeScreen = () => {
   let [page, setPage] = useState<number>(1)
@@ -84,10 +80,23 @@ import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
     });
   };
 
+  const truncateHtmlContent=(htmlContent:string, maxWords:number)=> {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, "text/html");
+    const textContent = doc.body.textContent || "";
+  
+    const words = textContent.split(/\s+/);
+    if (words.length > maxWords) {
+      const truncatedText = words.slice(0, maxWords).join(" ") + "...";
+      return truncatedText;
+    } else {
+      return htmlContent; 
+    }
+  }
+
   const renderBlogs = () => {
     if (itemsToDisplay !== undefined && itemsToDisplay.length > 0) {
       const rows = [];
-      console.log("İtemToDisplay",itemsToDisplay)
       for (let i = 0; i < itemsToDisplay.length; i += 2) {
         rows.push(
             <Grid.Row centered key={i} id="blog-container">
@@ -104,7 +113,7 @@ import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
                         </Card.Header>
                         <Card.Header>{data.Title}</Card.Header>
                         <Card.Meta>{data.Author}</Card.Meta>
-                        <Card.Description dangerouslySetInnerHTML={{ __html: data.Detail }}></Card.Description>
+                        <Card.Description dangerouslySetInnerHTML={{ __html: truncateHtmlContent(data.Detail,25) }}></Card.Description>
                       </Card.Content>
                       <div className="link-container">
                         <Link color='blue' className="button-default btn-detail" target="_blank" to={`http://localhost:5173/BlogDetail/${data.id}`}>Detail</Link>
@@ -121,8 +130,6 @@ import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
       return rows;
     }
   };
-  
-        
 
   return (
       <>  
