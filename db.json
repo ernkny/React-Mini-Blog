@@ -10,7 +10,7 @@
     {
       "id": 2,
       "Title": "Lorem ipsum dolor sit amet.2",
-      "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!2",
+      "Detail": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque pr<strong>ovident maxime ea nihil perspiciatis et minima cum!2</strong></p>",
       "Author": "Eren Kınay",
       "Type": "Author"
     },
@@ -244,6 +244,11 @@
       "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!33",
       "Author": "Eren Kınay",
       "Type": "Author"
+    },
+    {
+      "Title": "gizemi çok seviyorum",
+      "Detail": "<p><i><strong>gizemi çok seviyorum</strong></i></p>",
+      "id": 37
     }
   ],
   "User": [

@@ -1,11 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { useGetBlogDetailQuery } from '../Apis/services/Blogs/blogApiSlice';
+import { useGetBlogDetailQuery, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
 import '../styles/BlogDetailScreen.css';
 import { Container, Icon, Card, CardContent, Grid, GridRow } from 'semantic-ui-react';
+import Slider from '../components/Slider';
 
 const BlogDetailScreen = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetBlogDetailQuery(id!);
+  const{data:blogData}=useGetBlogsQuery(1);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>An error occurred</p>;
@@ -25,6 +27,7 @@ const BlogDetailScreen = () => {
               </Card>
             </GridRow>
           </Grid>
+          {blogData && <Slider slides={blogData} interval={3000} />}
         </Container>
       );
     } else {

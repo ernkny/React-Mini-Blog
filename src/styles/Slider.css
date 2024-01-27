@@ -1,0 +1,24 @@
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
+  margin:auto;
+}
+
+.slider-wrapper {
+  
+  margin-top:20px;
+  display: flex;
+  transition: transform 0.3s ease-out;
+}
+
+.slide {
+  flex: 0 0 48%; 
+  height: 100%;
+  width: 90%;
+  margin:10px;
+}
+
+.slider-card{
+  background-color:#d1d1d1 !important;
+}
