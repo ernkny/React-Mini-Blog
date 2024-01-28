@@ -244,17 +244,28 @@
       "Detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate voluptas neque provident maxime ea nihil perspiciatis et minima cum!33",
       "Author": "Eren Kınay",
       "Type": "Author"
-    },
-    {
-      "Title": "gizemi çok seviyorum",
-      "Detail": "<p><i><strong>gizemi çok seviyorum</strong></i></p>",
-      "id": 37
     }
   ],
-  "User": [
+  "Users": [
     {
+      "id":1,
       "Username": "Ernkny",
-      "Password": "123123"
+      "Password": "123123",
+      "email":"ern@gmail.com"
+    }
+  ],
+
+  "UserDetail": [
+    {
+      "id":1,
+      "userId":1,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"../pictures/1.png"
     }
   ]
+
+  
 }

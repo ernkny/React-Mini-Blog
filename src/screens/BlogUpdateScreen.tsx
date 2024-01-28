@@ -1,5 +1,5 @@
 import {  useNavigate, useParams } from 'react-router-dom';
-import { useBlogUpdateMutation, useGetBlogDetailQuery } from '../Apis/services/Blogs/blogApiSlice';
+import { useBlogUpdateMutation, useGetBlogDetailQuery, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Button, Container, Form } from 'semantic-ui-react';
@@ -8,12 +8,14 @@ import { Blog } from '../types/Blog';
 import { useEffect } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Slider from '../components/Slider';
 const AlertSwal = withReactContent(Swal);
 
 const BlogUpdateScreen = () => {
     const { id } = useParams();
     const [UpdateBlog]=useBlogUpdateMutation();
     const {data, isLoading }=useGetBlogDetailQuery(id!);
+    const{data:blogData}=useGetBlogsQuery(2);
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<Blog>();
 
     useEffect(() => {
@@ -27,7 +29,7 @@ const BlogUpdateScreen = () => {
     let navigate = useNavigate();
     const ShowSuccessAlert = () => {
         AlertSwal.fire({
-          title: <p>Blog Added</p>,
+          title: <p>Blog Updated</p>,
           text: 'Blog Updated.',
           icon: 'success',
           timer: 3000,
@@ -95,6 +97,7 @@ const BlogUpdateScreen = () => {
                     </Form.Field>
                         <Button  className='button-default btn-submit' type='submit'>Submit</Button>
                         </Form>
+                        {blogData && <Slider slides={blogData} interval={3000} />}
                     </Container>
                   </>
                 )

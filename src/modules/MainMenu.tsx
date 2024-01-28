@@ -52,13 +52,13 @@ import { setQueryTextForSearch } from '../store/Actions/blogActions';
         <Menu.Item
           name='Blogs'
         >
-          <a style={{color: "white"}} href='/'><span>Blogs</span></a>
+          <a style={{color: "white"}} href='/'><span>My Blogs</span></a>
         </Menu.Item>
 
         <Menu.Item
           name='Authors'
         >
-          <a style={{color: "white"}} href='/'><span>Authors</span></a>
+          <a style={{color: "white"}} href='/Authors'><span>Authors</span></a>
         </Menu.Item>
 
         <Menu.Item

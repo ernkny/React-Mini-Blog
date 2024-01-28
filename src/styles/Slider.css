@@ -6,7 +6,6 @@
 }
 
 .slider-wrapper {
-  
   margin-top:20px;
   display: flex;
   transition: transform 0.3s ease-out;
@@ -20,5 +19,5 @@
 }
 
 .slider-card{
-  background-color:#d1d1d1 !important;
+  background-color:#F5F5F5 !important;
 }

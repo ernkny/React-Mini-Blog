@@ -1,16 +1,18 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Blog } from '../types/Blog'
 import { Button,Container,Form } from 'semantic-ui-react'
-import { useBlogAddMutation } from '../Apis/services/Blogs/blogApiSlice';
+import { useBlogAddMutation, useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
 import "../styles/BlogAddScreen.css"
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Slider from "../components/Slider";
 
 const BlogAddScreen = () => {
   const [addBlog] = useBlogAddMutation();
   const AlertSwal = withReactContent(Swal);
+  const{data:blogData}=useGetBlogsQuery(1);
   
   const ShowSuccessAlert = () => {
     AlertSwal.fire({
@@ -78,6 +80,8 @@ const BlogAddScreen = () => {
           </Form.Field>
           <Button  className='button-default btn-submit' type='submit'>Submit</Button>
         </Form>
+        {blogData && <Slider slides={blogData} interval={3000} />}
+        
     </Container>
   )
 }
