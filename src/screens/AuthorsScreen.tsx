@@ -1,99 +1,56 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Button,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardMeta,
   Container,
   Grid,
   Image,
 } from "semantic-ui-react";
+import { useGetAllUserDetailQuery } from "../Apis/services/UserDetails/userDetailApiSlice";
 
 const AuthorsScreen = () => {
+  let pageNumber=useRef<number>(1)
+  const { data: userDetails, isLoading, error } = useGetAllUserDetailQuery(pageNumber.current);
+
+  if (isLoading) return <Container>...Loading</Container>;
+  if (error) {
+    console.log(error);
+    return <Container>Error loading data</Container>;
+  }
+
+  const renderDetail = () => {
+    if (userDetails && userDetails.length > 0) {
+      return userDetails.map((item) => (
+        <Grid.Column key={item.id}>
+          <Card style={{ margin: "20px" }}>
+            <Image src={item.ImageUrl} wrapped ui={false} />
+            <CardContent>
+              <CardHeader>{item.Name}</CardHeader>
+              <CardDescription>
+                {item.About}
+              </CardDescription>
+            </CardContent>
+            <Button type="button">Blogs</Button>
+          </Card>
+        </Grid.Column>
+      ));
+    }
+    return null;
+  };
+
   return (
     <Container>
       <Grid>
-        <Grid.Row columns={3}>
-          <Grid.Column>
-            <Card style={{margin:"20px"}}>
-              <Image src="src\pictures\1.png" wrapped ui={false} />
-              <CardContent>
-                <CardHeader>Daniel</CardHeader>
-                <CardMeta>Joined in 2016</CardMeta>
-                <CardDescription>
-                  Daniel is a comedian living in Nashville.
-                </CardDescription>
-              </CardContent>
-              <Button type="button">Blogs</Button>
-            </Card>
-          </Grid.Column>
-          <Grid.Column>
-            <Card style={{margin:"20px"}}>
-              <Image src="src\pictures\1.png" wrapped ui={false} />
-              <CardContent>
-                <CardHeader>Daniel</CardHeader>
-                <CardMeta>Joined in 2016</CardMeta>
-                <CardDescription>
-                  Daniel is a comedian living in Nashville.
-                </CardDescription>
-              </CardContent>
-              <Button type="button">Blogs</Button>
-            </Card>
-          </Grid.Column>
-          <Grid.Column>
-            <Card style={{margin:"20px"}}>
-              <Image src="src\pictures\1.png" wrapped ui={false} />
-              <CardContent>
-                <CardHeader>Daniel</CardHeader>
-                <CardMeta>Joined in 2016</CardMeta>
-                <CardDescription>
-                  Daniel is a comedian living in Nashville.
-                </CardDescription>
-              </CardContent>
-              <Button type="button">Blogs</Button>
-            </Card>
-          </Grid.Column>
-          <Grid.Column>
-            <Card style={{margin:"20px"}}>
-              <Image src="src\pictures\1.png" wrapped ui={false} />
-              <CardContent>
-                <CardHeader>Daniel</CardHeader>
-                <CardMeta>Joined in 2016</CardMeta>
-                <CardDescription>
-                  Daniel is a comedian living in Nashville.
-                </CardDescription>
-              </CardContent>
-              <Button type="button">Blogs</Button>
-            </Card>
-          </Grid.Column>
-          <Grid.Column>
-            <Card style={{margin:"20px"}}>
-              <Image src="src\pictures\1.png" wrapped ui={false} />
-              <CardContent>
-                <CardHeader>Daniel</CardHeader>
-                <CardMeta>Joined in 2016</CardMeta>
-                <CardDescription>
-                  Daniel is a comedian living in Nashville.
-                </CardDescription>
-              </CardContent>
-              <Button type="button">Blogs</Button>
-            </Card>
-          </Grid.Column>
-          <Grid.Column>
-            <Card style={{margin:"20px"}}>
-              <Image src="src\pictures\1.png" wrapped ui={false} />
-              <CardContent>
-                <CardHeader>Daniel</CardHeader>
-                <CardMeta>Joined in 2016</CardMeta>
-                <CardDescription>
-                  Daniel is a comedian living in Nashville.
-                </CardDescription>
-              </CardContent>
-              <Button type="button">Blogs</Button>
-            </Card>
-          </Grid.Column>
+        <Grid.Row columns={4}>
+          {renderDetail()}
+        </Grid.Row>
+      </Grid>
+      <Grid>
+        <Grid.Row>
+          <Button color="grey" fluid style={{ marginLeft: "24px" }}>Download More</Button>
         </Grid.Row>
       </Grid>
     </Container>

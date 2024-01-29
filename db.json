@@ -251,20 +251,82 @@
       "id":1,
       "Username": "Ernkny",
       "Password": "123123",
-      "email":"ern@gmail.com"
+      "Email":"ern@gmail.com"
     }
   ],
 
-  "UserDetail": [
+  "UserDetails": [
     {
       "id":1,
-      "userId":1,
+      "UserId":1,
       "Name": "Eren",
       "Surname": "Kınay",
       "Age":"25",
       "About":"Best writer in the world",
-      "ImageUrl":"../pictures/1.png"
+      "ImageUrl":"src/pictures/2.png"
+    },
+    {
+      "id":2,
+      "UserId":2,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"src/pictures/1.png"
+    },
+    {
+      "id":3,
+      "UserId":3,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"src/pictures/3.png"
+    },
+    {
+      "id":4,
+      "UserId":4,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"src/pictures/1.png"
+    }, {
+      "id":5,
+      "UserId":5,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"src/pictures/2.png"
+    },
+    {
+      "id":6,
+      "UserId":6,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"src/pictures/4.png"
+    }, {
+      "id":7,
+      "UserId":7,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"src/pictures/3.png"
+    },
+    {
+      "id":8,
+      "UserId":8,
+      "Name": "Eren",
+      "Surname": "Kınay",
+      "Age":"25",
+      "About":"Best writer in the world",
+      "ImageUrl":"src/pictures/2.png"
     }
+    
   ]
 
   
