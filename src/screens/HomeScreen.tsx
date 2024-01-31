@@ -7,7 +7,7 @@ import "../styles/HomeScreen.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useBlogDeleteMutation } from "../Apis/services/Blogs/blogApiSlice";
 import filteredDataCustomHooks from "../customHooks/filteredData";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../modules/Loading";
 import { Blog } from "../types/Blog";
 

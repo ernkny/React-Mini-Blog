@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import "../styles/AuthorScreen.css"
 import {
   Button,
   Card,
@@ -10,22 +11,33 @@ import {
   Image,
 } from "semantic-ui-react";
 import { useGetAllUserDetailQuery } from "../Apis/services/UserDetails/userDetailApiSlice";
+import { UserDetail } from "../types/UserDetail";
+import Loading from "../modules/Loading";
 
 const AuthorsScreen = () => {
   let pageNumber=useRef<number>(1)
-  const { data: userDetails, isLoading, error } = useGetAllUserDetailQuery(pageNumber.current);
+  const { data: userDetails} = useGetAllUserDetailQuery(pageNumber.current);
+  const [pageLoading, setPageLoading] = useState<boolean>(false);
+  const [itemsToDisplay,setItemsToDisplay]=useState<UserDetail[]>([]);
+  useEffect(() => {
+    if(userDetails && userDetails.length>0){
+      setItemsToDisplay([...itemsToDisplay, ...userDetails]);
+    }
+  }, [userDetails])
 
-  if (isLoading) return <Container>...Loading</Container>;
-  if (error) {
-    console.log(error);
-    return <Container>Error loading data</Container>;
-  }
+  const downloadMoreAuthors=()=>{
+    setPageLoading(true);
+    setTimeout(() => {
+      pageNumber.current=(pageNumber.current+1)
+      setPageLoading(false);
+    }, 1000);
+   }
 
   const renderDetail = () => {
-    if (userDetails && userDetails.length > 0) {
-      return userDetails.map((item) => (
+    if (itemsToDisplay && itemsToDisplay.length > 0) {
+      return itemsToDisplay.map((item) => (
         <Grid.Column key={item.id}>
-          <Card style={{ margin: "20px" }}>
+          <Card className="author-card">
             <Image src={item.ImageUrl} wrapped ui={false} />
             <CardContent>
               <CardHeader>{item.Name}</CardHeader>
@@ -48,9 +60,14 @@ const AuthorsScreen = () => {
           {renderDetail()}
         </Grid.Row>
       </Grid>
+      {pageLoading && (
+            <div id="loading-wrapper">
+              <Loading color={"#4F6F52"} />
+            </div>
+          )}
       <Grid>
         <Grid.Row>
-          <Button color="grey" fluid style={{ marginLeft: "24px" }}>Download More</Button>
+          <Button color="grey" fluid onClick={downloadMoreAuthors}>Download More</Button>
         </Grid.Row>
       </Grid>
     </Container>

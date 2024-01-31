@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useBlogSearchQuery } from '../store/Hooks/blogHooks';
 import { Blog } from '../types/Blog';
 import { useGetBlogsQuery } from '../Apis/services/Blogs/blogApiSlice';
