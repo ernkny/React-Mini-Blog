@@ -13,6 +13,7 @@ import {
 import { useGetAllUserDetailQuery } from "../Apis/services/UserDetails/userDetailApiSlice";
 import { UserDetail } from "../types/UserDetail";
 import Loading from "../modules/Loading";
+import { Link } from "react-router-dom";
 
 const AuthorsScreen = () => {
   let pageNumber=useRef<number>(1)
@@ -35,8 +36,8 @@ const AuthorsScreen = () => {
 
   const renderDetail = () => {
     if (itemsToDisplay && itemsToDisplay.length > 0) {
-      return itemsToDisplay.map((item) => (
-        <Grid.Column key={item.id}>
+      return itemsToDisplay.map((item,index) => (
+        <Grid.Column key={index} id={index}>
           <Card className="author-card">
             <Image src={item.ImageUrl} wrapped ui={false} />
             <CardContent>
@@ -45,7 +46,14 @@ const AuthorsScreen = () => {
                 {item.About}
               </CardDescription>
             </CardContent>
-            <Button type="button">Blogs</Button>
+            <Link
+                        color="blue"
+                        className="button-default btn-detail"
+                        target="_blank"
+                        to={`http://localhost:5173/BlogDetail/${item.id}`}
+                      >
+                        Blogs
+                      </Link>
           </Card>
         </Grid.Column>
       ));
