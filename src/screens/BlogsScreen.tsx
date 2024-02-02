@@ -7,12 +7,14 @@ import { BlogsWithUserIdRequest } from '../Apis/services/Blogs/Models/BlogsWithU
 import { useGetUserDetailQuery } from '../Apis/services/UserDetails/userDetailApiSlice';
 import { UserDetail } from '../types/UserDetail';
 import { Blog } from '../types/Blog';
+import "../styles/NoDataFound.css"
+import NoDataFound from '../components/NoDataFound';
 
 const BlogsScreen = () => {
-    const { id } = useParams<{ id: string }>(); // Tip belirtimi ile useParams kullanımı
+    const { id } = useParams<{ id: string }>();
     const [pageNumber, setPageNumber] = useState<number>(1);
     const { data: user, isLoading, isError } = useGetUserDetailQuery(id!);
-    const [userDetail, setUserDetail] = useState<UserDetail | null>(user || null);
+    const [userDetail, setUserDetail] = useState<UserDetail[] | null>(user!);
 
     const blogWithUserId: BlogsWithUserIdRequest = {
         pageNumber,
@@ -28,6 +30,9 @@ const BlogsScreen = () => {
     }, [user]);
 
     useEffect(() => {
+  }, [userDetail]);
+
+    useEffect(() => {
         if (blogs) {
             setUserBlogs(blogs);
         }
@@ -36,7 +41,7 @@ const BlogsScreen = () => {
     const pageNumberChange = () => {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
     };
-    if(blogs?.length===0) return <div>No Data Found</div>;
+
     if (isLoading) return <>...loading</>;
 
     if (isError || !userDetail) return <>Error loading user detail.</>;
@@ -45,7 +50,7 @@ const BlogsScreen = () => {
         <>
             <Container>
                 <h1 style={{ fontSize: "1.2rem" }}>
-                    <span>{userDetail.Name} Blogs</span>
+                <span>{userDetail?.[0] ? `${userDetail[0].Name} ${userDetail[0].Surname} Blogs` : 'No User Details Found'}</span>
                 </h1>
                 <Grid columns={4} divided>
                     {blogs && (

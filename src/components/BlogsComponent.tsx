@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useBlogDeleteMutation } from "../Apis/services/Blogs/blogApiSlice";
 import { Blog } from "../types/Blog";
 import Loading from "../modules/Loading";
+import NoDataFound from "./NoDataFound";
 
 interface props {
   BlogData: Blog[];
@@ -53,7 +54,12 @@ const BlogsComponent: React.FC<props> = ({
     if (BlogData.length > 0 && page !== 1) {
       setItemsToDisplay((prevItems) => [...prevItems, ...BlogData]);
     }
+    
   }, [BlogData]);
+
+  if(itemsToDisplay.length===0){
+    return <div><NoDataFound/></div>;
+  }
 
   const confirmDelete = (id: number) => {
     confirmAlert({
@@ -65,7 +71,6 @@ const BlogsComponent: React.FC<props> = ({
           onClick: async () => {
             try {
               await deleteBlogMutation(id).unwrap();
-              refetchDataAfterDelete(true)
             } catch (error) {
               // Hata işleme
             }
