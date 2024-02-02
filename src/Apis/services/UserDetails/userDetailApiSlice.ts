@@ -7,7 +7,12 @@ export const userDetailApiSlice=apiSlice.injectEndpoints({
             query: (pageNumber) => `/UserDetails?_start=${(pageNumber*8)-8}&_end=${pageNumber*8}`,
             providesTags: ['UserDetails']
         }),
+        getUserDetail:builder.query<UserDetail,string>({
+            query: (userId) => `/UserDetails?UserId=${userId}`,
+            providesTags: ['UserDetails']
+        }),
     })
+    
 })
 
-export const { useGetAllUserDetailQuery } = userDetailApiSlice;
+export const { useGetAllUserDetailQuery,useGetUserDetailQuery } = userDetailApiSlice;

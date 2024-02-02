@@ -14,7 +14,7 @@ interface props {
   BlogData: Blog[];
   page: number;
   pageNumberChange: (data: number) => void;
-  refetchDataAfterDelete:(reload:boolean)=>void
+  refetchDataAfterDelete?:(reload:boolean)=>void
 }
 
 const BlogsComponent: React.FC<props> = ({

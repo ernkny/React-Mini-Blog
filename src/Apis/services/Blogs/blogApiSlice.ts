@@ -1,10 +1,15 @@
 import { Blog } from "../../../types/Blog";
 import { apiSlice } from "../ApiSlice";
+import { BlogsWithUserIdRequest } from "./Models/BlogsWithUserIdRequest";
 
 export const blogApiSlice=apiSlice.injectEndpoints({
     endpoints:builder=>({
         GetBlogs: builder.query<Blog[], number>({
             query: (pageNumber) => `/Blogs?_start=${(pageNumber*10)-10}&_end=${pageNumber*10}`,
+            providesTags: ['Blogs']
+        }),
+        GetBlogsWithUserId: builder.query<Blog[], BlogsWithUserIdRequest>({
+            query: (request:BlogsWithUserIdRequest) => `/Blogs?UserId=${request.UserId}&_start=${(request.pageNumber*10)-10}&_end=${request.pageNumber*10}`,
             providesTags: ['Blogs']
         }),
         GetBlogDetail: builder.query<Blog, string | number>({
@@ -38,4 +43,4 @@ export const blogApiSlice=apiSlice.injectEndpoints({
 
 })
 
-export const { useGetBlogsQuery,useGetBlogDetailQuery,useBlogAddMutation,useBlogDeleteMutation, useBlogUpdateMutation} = blogApiSlice;
+export const { useGetBlogsQuery,useGetBlogDetailQuery,useBlogAddMutation,useBlogDeleteMutation, useBlogUpdateMutation,useGetBlogsWithUserIdQuery} = blogApiSlice;

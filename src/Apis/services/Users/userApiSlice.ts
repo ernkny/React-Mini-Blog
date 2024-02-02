@@ -8,6 +8,10 @@ export const userApiSlice=apiSlice.injectEndpoints({
             query: (pageNumber) => `/Users?_start=${(pageNumber*8)-8}&_end=${pageNumber*8}`,
             providesTags: ['Users']
         }),
+        getUser: builder.query<User, string>({
+            query: (userId) => `/Users?id=${userId}`,
+            providesTags: ['Users']
+        }),
     })
 })
 

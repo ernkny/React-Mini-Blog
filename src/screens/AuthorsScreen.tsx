@@ -49,8 +49,7 @@ const AuthorsScreen = () => {
             <Link
                         color="blue"
                         className="button-default btn-detail"
-                        target="_blank"
-                        to={`http://localhost:5173/BlogDetail/${item.id}`}
+                        to={`http://localhost:5173/Blogs/${item.UserId}`}
                       >
                         Blogs
                       </Link>
