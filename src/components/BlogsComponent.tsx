@@ -58,7 +58,7 @@ const BlogsComponent: React.FC<props> = ({
   }, [BlogData]);
 
   if(itemsToDisplay.length===0){
-    return <div><NoDataFound/></div>;
+    return <NoDataFound/>;
   }
 
   const confirmDelete = (id: number) => {
