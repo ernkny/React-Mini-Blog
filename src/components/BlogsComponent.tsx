@@ -2,7 +2,7 @@ import { Card, Grid } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import "../styles/HomeScreen.css";
+import "../styles/MyBlogsScreen.css";
 import { Link, useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import { useEffect, useState } from "react";

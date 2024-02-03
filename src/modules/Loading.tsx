@@ -1,5 +1,4 @@
-import React from 'react'
-import  '../styles/HomeScreen.css'
+import "../styles/MyBlogsScreen.css";
 
 const Loading = ({ color }: { color: string }) => {
     return (

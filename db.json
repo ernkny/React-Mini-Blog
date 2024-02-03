@@ -320,16 +320,16 @@
     {
       "id": 2,
       "UserId": 2,
-      "Name": "Eren",
+      "Name": "Fatih",
       "Surname": "Kınay",
       "Age": "25",
-      "About": "Best writer in the world",
+      "About": "Best writer in the worldss",
       "ImageUrl": "src/pictures/1.png"
     },
     {
       "id": 3,
       "UserId": 3,
-      "Name": "Eren",
+      "Name": "Can",
       "Surname": "Kınay",
       "Age": "25",
       "About": "Best writer in the world",
@@ -338,7 +338,7 @@
     {
       "id": 4,
       "UserId": 4,
-      "Name": "Eren",
+      "Name": "Mahmut",
       "Surname": "Kınay",
       "Age": "25",
       "About": "Best writer in the world",

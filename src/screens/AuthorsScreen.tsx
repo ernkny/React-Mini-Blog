@@ -21,9 +21,13 @@ const AuthorsScreen = () => {
   const [pageLoading, setPageLoading] = useState<boolean>(false);
   const [itemsToDisplay,setItemsToDisplay]=useState<UserDetail[]>([]);
   useEffect(() => {
+    console.log("number1",pageNumber.current)
+  console.log("authors1",userDetails)
     if(userDetails && userDetails.length>0){
       setItemsToDisplay([...itemsToDisplay, ...userDetails]);
     }
+    console.log("authors2",userDetails)
+    console.log("number2",pageNumber.current)
   }, [userDetails])
 
   const downloadMoreAuthors=()=>{
@@ -62,6 +66,9 @@ const AuthorsScreen = () => {
 
   return (
     <Container>
+       <h1 style={{ fontSize: "1.2rem" }}>
+            <span>Authors</span>
+          </h1>
       <Grid>
         <Grid.Row columns={4}>
           {renderDetail()}

@@ -1,11 +1,11 @@
 import { Button, Container, Grid } from "semantic-ui-react";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import "../styles/HomeScreen.css";
+import "../styles/MyBlogsScreen.css";
 import filteredDataCustomHooks from "../customHooks/filteredData";
 import { useEffect, useState } from "react";
 import BlogsComponent from "../components/BlogsComponent";
 
-const HomeScreen = () => {
+const MyBlogsScreen = () => {
   let [pageNumber, setPageNumber] = useState<number>(1);
   const { filteredData,refetch } = filteredDataCustomHooks(pageNumber);
   const pageNumberChange = () => {
@@ -40,4 +40,4 @@ const HomeScreen = () => {
     );
 };
 
-export default HomeScreen;
+export default MyBlogsScreen;

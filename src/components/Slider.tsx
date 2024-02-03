@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Slider.css';
-import '../styles/HomeScreen.css'
+import "../styles/MyBlogsScreen.css";
 import { Blog } from '../types/Blog';
 import { Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
