@@ -1,5 +1,5 @@
 import { User } from "../../../types/User";
-import { apiSlice } from "../ApiSlice";
+import { apiSlice } from "../apiSlice";
 
 
 export const userApiSlice=apiSlice.injectEndpoints({

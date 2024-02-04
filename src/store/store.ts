@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import storage from "redux-persist/lib/storage";
-import { apiSlice } from '../Apis/services/ApiSlice'
 import {  persistReducer,persistStore } from "redux-persist";
 import blogs,{ blogPersistConfig } from './Slices/blogSlice';
+import auth, { authPersistConfig } from "./Slices/authSlice";
+import { apiSlice } from '../Apis/services/apiSlice';
 
 const rootPersistConfig={
   key:"root",
@@ -12,6 +13,7 @@ const rootPersistConfig={
 
 const rootReducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
+  auth: persistReducer(authPersistConfig, auth),
   blogs:persistReducer(blogPersistConfig,blogs)
 });
 

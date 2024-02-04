@@ -8,11 +8,9 @@ const Layout = () => {
   return (
     <>
       <MainMenu />
-      <Container>
         <main  className="App">
           <Outlet />
         </main>
-      </Container>
       <Footer />
     </>
   );

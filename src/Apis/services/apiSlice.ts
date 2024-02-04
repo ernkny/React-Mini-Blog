@@ -4,7 +4,7 @@ import { API_URL } from '../API_URL';
 export const apiSlice = createApi({
     reducerPath: 'BlogsApi',
     baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
-    tagTypes: ['Blogs','Users','UserDetails'],
+    tagTypes: ['Blogs','Users','UserDetails',"auth"],
     endpoints: builder=> ({})
 });
 

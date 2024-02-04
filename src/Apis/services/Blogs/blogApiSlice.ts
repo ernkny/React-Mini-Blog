@@ -1,5 +1,5 @@
 import { Blog } from "../../../types/Blog";
-import { apiSlice } from "../ApiSlice";
+import { apiSlice } from "../apiSlice";
 import { BlogsWithUserIdRequest } from "./Models/BlogsWithUserIdRequest";
 
 export const blogApiSlice=apiSlice.injectEndpoints({
