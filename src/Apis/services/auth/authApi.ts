@@ -5,7 +5,7 @@ import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from "
     endpoints: (builder) => ({
         login: builder.mutation<LoginResponse, LoginRequest>({
             query: (body) => ({
-              url: "/Users",
+              url: `/Users?Username=${body.username}&Password=${body.password}`,
               method: "POST",
               body,
             }),

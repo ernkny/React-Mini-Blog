@@ -25,7 +25,8 @@ const LoginScreen = () => {
     try {
       login(data)
         .unwrap()
-        .then(() => {
+        .then((res) => {
+          console.log(res)
           setUserName(data.username);
           navigate("/", { replace: true });
         })
@@ -42,6 +43,12 @@ const LoginScreen = () => {
       }
     } 
 };
+
+const navigateToRegisterPage=()=>
+{
+navigate("/Register")
+}
+
   return (
     <>
 
@@ -73,6 +80,10 @@ const LoginScreen = () => {
                   <Button className=" labeled icon  button-default btn-detail" type="submit">
                     <i className="unlock alternate icon" />
                     Login
+                  </Button>
+                  <Button className=" labeled icon  button-default btn-detail" style={{float: "right"}} type="button" onClick={navigateToRegisterPage}>
+                    <i className="registered alternate icon" />
+                    Register
                   </Button>
                 </form>
               </div>
