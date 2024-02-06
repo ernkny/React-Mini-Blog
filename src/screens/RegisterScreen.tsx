@@ -33,10 +33,8 @@ const RegisterScreen = () => {
     } = useForm<RegisterRequest>();
     const onSubmit: SubmitHandler<RegisterRequest> = async (data) => {
       try {
-        console.log(users)
         if(!isLoading && !error && users){
           let validateUser=await users.find(user=>user.Email===data.Email && user.Username===data.Username);
-          console.log(validateUser)
           if(validateUser===undefined){
             let token=generateSecureToken(16)
             data.accessToken=token;

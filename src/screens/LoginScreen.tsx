@@ -25,13 +25,11 @@ const LoginScreen = () => {
   } = useForm<LoginRequest>();
   const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
     try {
-      console.log(users)
       if (users) {
         let filteredUser = users.find(
           (user) =>
             user.Password === data.password && user.Username === data.username
         );
-        console.log(filteredUser)
         if (filteredUser) {
           let loginUser: LoginRequest = {
             username: filteredUser.Username,
