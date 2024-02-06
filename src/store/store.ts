@@ -4,6 +4,7 @@ import {  persistReducer,persistStore } from "redux-persist";
 import blogs,{ blogPersistConfig } from './Slices/blogSlice';
 import auth, { authPersistConfig } from "./Slices/authSlice";
 import { apiSlice } from '../Apis/services/apiSlice';
+import authApi from '../Apis/services/auth/authApi';
 
 const rootPersistConfig={
   key:"root",
@@ -13,6 +14,7 @@ const rootPersistConfig={
 
 const rootReducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
+  [authApi.reducerPath]: authApi.reducer,
   auth: persistReducer(authPersistConfig, auth),
   blogs:persistReducer(blogPersistConfig,blogs)
 });
@@ -26,7 +28,7 @@ export const store = configureStore({
         serializableCheck: {
           ignoredActions: ["persist/PERSIST"],
         },
-      }).concat(apiSlice.middleware)
+      }).concat(apiSlice.middleware, authApi.middleware)
 })
 
 

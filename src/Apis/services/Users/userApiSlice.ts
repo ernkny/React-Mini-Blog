@@ -8,6 +8,10 @@ export const userApiSlice=apiSlice.injectEndpoints({
             query: (pageNumber) => `/Users?_start=${(pageNumber*8)-8}&_end=${pageNumber*8}`,
             providesTags: ['Users']
         }),
+        getAllUsers: builder.query<User[], void>({
+            query: () => `/Users`,
+            providesTags: ['Users']
+        }),
         getUser: builder.query<User, string>({
             query: (userId) => `/Users?id=${userId}`,
             providesTags: ['Users']
@@ -15,4 +19,4 @@ export const userApiSlice=apiSlice.injectEndpoints({
     })
 })
 
-export const { useGetUsersQuery } = userApiSlice;
+export const { useGetUsersQuery,useGetAllUsersQuery } = userApiSlice;

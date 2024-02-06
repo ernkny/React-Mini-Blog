@@ -1,4 +1,9 @@
 export type RegisterRequest = {
-  username: string;
-  password: string;
+  Username: string;
+  Password: string;
+  Email:string
+  accessToken:string;
+  refreshToken:string;
+  accessTokenExpireDate: number;
+  refreshTokenExpireDate: number;
 };
