@@ -23,7 +23,6 @@ const BlogsScreen = () => {
   const [userBlogs, setUserBlogs] = useState<Blog[]>(blogs || []);
 
   useEffect(() => {
-    console.log(user);
     if (user) {
       setUserDetail(user);
     }

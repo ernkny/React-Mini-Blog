@@ -11,6 +11,8 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
+
+
 const ProfileScreen = () => {
   return (
     <div className="gradient-custom-2" >

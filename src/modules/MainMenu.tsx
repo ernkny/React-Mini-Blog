@@ -48,6 +48,9 @@ const MainMenu = () => {
     logout();
   navigate("/");
   }
+  function navigateProfile(): any {
+  navigate("/Profile");
+  }
   
   return (
     <Menu className="mainMenu" id="main-menu">
@@ -70,18 +73,11 @@ const MainMenu = () => {
         </a>
       </Menu.Item>
 
-      <Menu.Item name="Profile">
-        <a href="/Profile">
-          <span>Profile</span>
-        </a>
-      </Menu.Item>
+     
+      
+        
 
-      <Button icon labelPosition="right" onClick={LogoutHandler}>
-        Log Out
-        <Icon name="log out" />
-      </Button>
-
-      <Menu.Menu position="right" id="Search">
+      <Menu.Menu position="right" id="Search" style={{width:"60rem",margin:"auto"}}>
         <Menu.Item>
           <Input
             placeholder="Search..."
@@ -90,6 +86,13 @@ const MainMenu = () => {
           <Button icon="search" className="mr-2" onClick={searchQueryText} />
         </Menu.Item>
       </Menu.Menu>
+      <div className="division-menu-icons">
+          <Icon name="user" className="menu-icon" onClick={navigateProfile}>
+          </Icon>
+          <Icon name="log out" className="menu-icon" onClick={LogoutHandler}>
+          </Icon>
+        </div>
+       
     </Menu>
   );
 };

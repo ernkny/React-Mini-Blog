@@ -10,3 +10,6 @@ export const useAccessToken = () =>
 
 export const useUserName = () =>
   useSelector((state: RootState) => state.auth.userName);
+
+export const useProfileInformation=()=>
+ useSelector((state: RootState) => state.auth.userProfileInformation);

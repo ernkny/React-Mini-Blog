@@ -19,8 +19,8 @@ const RegisterScreen = () => {
 
     const ShowSuccessAlert = () => {
       AlertSwal.fire({
-        title: <p>Blog Added</p>,
-        text: 'Blog added to page.',
+        title: <p>User Created</p>,
+        text: 'Login with your new profile.',
         icon: 'success',
         timer: 3000,
       });
@@ -33,11 +33,11 @@ const RegisterScreen = () => {
     } = useForm<RegisterRequest>();
     const onSubmit: SubmitHandler<RegisterRequest> = async (data) => {
       try {
+        console.log(users)
         if(!isLoading && !error && users){
-          console.log(users)
           let validateUser=await users.find(user=>user.Email===data.Email && user.Username===data.Username);
+          console.log(validateUser)
           if(validateUser===undefined){
-            console.log("validateUser",validateUser)
             let token=generateSecureToken(16)
             data.accessToken=token;
             data.refreshToken=token;
@@ -46,7 +46,8 @@ const RegisterScreen = () => {
             registerUser(data)
             .unwrap()
             .then((res)=>{
-             console.log(res)
+              ShowSuccessAlert()
+              navigate("/login")
             });
           }
           else
@@ -81,7 +82,7 @@ const RegisterScreen = () => {
           <div className="nine wide column">
             <div className="ui icon warning message">
               <i className="lock icon" />
-              <div className="content" id="Error">
+              <div className="content header-login-register" id="Error">
                 {errorMessage}
               </div>
             </div>
@@ -107,6 +108,7 @@ const RegisterScreen = () => {
                     <input type="password" placeholder="Password" 
                       {...register("Password", { required: true })}
                     />
+                     {errors.Password && <p>This field is required</p>}
                   </div>
                   <Button
                     className=" labeled icon  button-default btn-detail"

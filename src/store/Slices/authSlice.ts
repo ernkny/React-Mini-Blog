@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { authApi } from "../../Apis/services/auth/authApi";
+import { act } from "react-dom/test-utils";
+import { LoginRequest, LoginResponse } from "../../Apis/services/auth/models";
 
 type InitialState = {
   accessToken: string | null;
   userName: string | null;
-};
+  userProfileInformation:LoginResponse | null;
+}
 
 const initialState: InitialState = {
   accessToken: null,
   userName: null,
+  userProfileInformation:null
 };
 
 const authSlice = createSlice({
@@ -23,6 +27,9 @@ const authSlice = createSlice({
     _setUserName: (state, action) => {
       state.userName = action.payload;
     },
+    _setUserProfileInformation:(state,action)=>{
+      state.userProfileInformation = action.payload;
+    }
   },
   
   extraReducers: (builder) => {
@@ -41,5 +48,5 @@ export const authPersistConfig = {
   blacklist: [""],
 };
 
-export const { _logout, _setUserName } = authSlice.actions;
+export const { _logout, _setUserName,_setUserProfileInformation } = authSlice.actions;
 export default authSlice.reducer;

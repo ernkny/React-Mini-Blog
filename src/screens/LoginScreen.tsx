@@ -2,15 +2,14 @@ import { Button } from "semantic-ui-react";
 import "../styles/FormScreen.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { LoginRequest } from "../Apis/services/auth/models";
-import { setUserName } from "../store/Actions/authActions";
-import { useLoginMutation } from "../Apis/services/auth/authApi";
+import { setUserName,setUserProfile } from "../store/Actions/authActions";
+import { useGetAllUsersFromAuthQuery, useLoginMutation } from "../Apis/services/auth/authApi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { useGetAllUsersQuery } from "../Apis/services/Users/userApiSlice";
 
 const LoginScreen = () => {
   const [login, {}] = useLoginMutation();
-  const { data: users } = useGetAllUsersQuery();
+  const { data: users } = useGetAllUsersFromAuthQuery();
   const navigate = useNavigate();
   const [messages, setMessages] = useState({
     serverError: false,
@@ -26,11 +25,13 @@ const LoginScreen = () => {
   } = useForm<LoginRequest>();
   const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
     try {
+      console.log(users)
       if (users) {
         let filteredUser = users.find(
           (user) =>
             user.Password === data.password && user.Username === data.username
         );
+        console.log(filteredUser)
         if (filteredUser) {
           let loginUser: LoginRequest = {
             username: filteredUser.Username,
@@ -38,9 +39,10 @@ const LoginScreen = () => {
           };
           login(loginUser)
             .unwrap()
-            .then((res) => {
-              if (res) {
+            .then((userProfile) => {
+              if (userProfile) {
                 setUserName(loginUser.username);
+                setUserProfile(userProfile)
                 navigate("/", { replace: true });
               }
             });
@@ -65,7 +67,7 @@ const LoginScreen = () => {
     }
   };
 
-  useEffect(() => {}, [messages]);
+  useEffect(() => {}, [messages,users]);
 
   const navigateToRegisterPage = () => {
     navigate("/Register");
@@ -80,7 +82,7 @@ const LoginScreen = () => {
             <div className="ui icon warning message">
               <i className="lock icon" />
               <div className="content">
-                <div className="header">{messages.message}</div>
+                <div className="header header-login-register">{messages.message}</div>
               </div>
             </div>
             <div className="ui fluid card">

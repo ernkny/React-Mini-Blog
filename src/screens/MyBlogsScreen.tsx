@@ -12,10 +12,9 @@ const MyBlogsScreen = () => {
     setPageNumber((prevPageNumber) => prevPageNumber + 1);
   };
   const refetchDataAfterDelete=()=>{
-    console.log("çalıştı")
     refetch()
   }
-    useEffect(() => {console.log(filteredData)}, [filteredData]);
+    useEffect(() => {}, [filteredData]);
 
     return (
       <>
