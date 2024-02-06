@@ -10,10 +10,15 @@ import {
   MDBBtn,
   MDBTypography,
 } from "mdb-react-ui-kit";
+import { useProfileInformation } from "../store/Hooks/authHooks";
+
 
 
 
 const ProfileScreen = () => {
+
+  const userProfile=useProfileInformation();
+  console.log(userProfile);
   return (
     <div className="gradient-custom-2" >
       <MDBContainer className="py-5 h-100">
