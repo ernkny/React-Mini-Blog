@@ -8,11 +8,12 @@ import BlogDetailScreen from "../screens/BlogDetailScreen";
 import BlogUpdateScreen from "../screens/BlogUpdateScreen";
 import BlogsScreen from "../screens/BlogsScreen";
 import LoginScreen from "../screens/LoginScreen";
-import MyBlogsScreen from "../screens/MyBlogsScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import "../../src/App.css";
 import ProtectedRoute from "./ProtectedRoute";
 import ProfileScreen from "../screens/ProfileScreen";
+import AllBlogsScreen from "../screens/ALLBlogsScreen";
+import MyBlogsScreen from "../screens/MyBlogsScreen";
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const MainRoutes = () => {
               <Layout />
             </ProtectedRoute>
           }>
+              <Route path="/AllBlogs" Component={AllBlogsScreen} />
               <Route path="/MyBlogs" Component={MyBlogsScreen} />
               <Route path="/BlogDetail/:id" Component={BlogDetailScreen} />
               <Route path="/BlogAdd" Component={BlogAddScreen} />

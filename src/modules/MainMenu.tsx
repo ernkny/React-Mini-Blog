@@ -55,7 +55,13 @@ const MainMenu = () => {
   return (
     <Menu className="mainMenu" id="main-menu">
       <img src={logo} width={50} height={50} />
-      <Menu.Item name="Blogs">
+      <Menu.Item name="All Blogs">
+        <a href="/AllBlogs">
+          <span>Blogs</span>
+        </a>
+      </Menu.Item>
+
+      <Menu.Item name="My Blogs">
         <a href="/MyBlogs">
           <span>My Blogs</span>
         </a>

@@ -14,15 +14,17 @@ import NoDataFound from "./NoDataFound";
 interface props {
   BlogData: Blog[];
   page: number;
+  isMyBlogs: boolean;
   pageNumberChange: (data: number) => void;
-  refetchDataAfterDelete?:(reload:boolean)=>void
+  refetchDataAfterDelete?: (reload: boolean) => void;
 }
 
 const BlogsComponent: React.FC<props> = ({
   BlogData,
   page,
   pageNumberChange,
-  refetchDataAfterDelete
+  isMyBlogs,
+  refetchDataAfterDelete,
 }) => {
   const [pageLoading, setPageLoading] = useState<boolean>(false);
   const [deleteBlogMutation] = useBlogDeleteMutation();
@@ -54,11 +56,10 @@ const BlogsComponent: React.FC<props> = ({
     if (BlogData.length > 0 && page !== 1) {
       setItemsToDisplay((prevItems) => [...prevItems, ...BlogData]);
     }
-    
   }, [BlogData]);
 
-  if(itemsToDisplay.length===0){
-    return <NoDataFound/>;
+  if (itemsToDisplay.length === 0) {
+    return <NoDataFound />;
   }
 
   const confirmDelete = (id: number) => {
@@ -112,24 +113,28 @@ const BlogsComponent: React.FC<props> = ({
                 >
                   <Card className="card-box-shadow card-content-side">
                     <Card.Content>
-                      <Card.Header>
-                        <FontAwesomeIcon
-                          className="link-delete"
-                          icon={faTimes}
-                          size="lg"
-                          color="#862B0D"
-                          onClick={() => confirmDelete(data.id)}
-                        />
-                      </Card.Header>
-                      <Card.Header>
-                        <FontAwesomeIcon
-                          className="link-delete"
-                          icon={faPenToSquare}
-                          size="lg"
-                          color="#B3A492"
-                          onClick={() => navigateToUpdate(data.id)}
-                        />
-                      </Card.Header>
+                      {isMyBlogs && (
+                        <Card.Header>
+                          <FontAwesomeIcon
+                            className="link-delete"
+                            icon={faTimes}
+                            size="lg"
+                            color="#862B0D"
+                            onClick={() => confirmDelete(data.id)}
+                          />
+                        </Card.Header>
+                      )}
+                      {isMyBlogs && (
+                        <Card.Header>
+                          <FontAwesomeIcon
+                            className="link-delete"
+                            icon={faPenToSquare}
+                            size="lg"
+                            color="#B3A492"
+                            onClick={() => navigateToUpdate(data.id)}
+                          />
+                        </Card.Header>
+                      )}
                       <Card.Header>{data.Title}</Card.Header>
                       <Card.Meta>{data.Author}</Card.Meta>
                       <Card.Description
@@ -179,5 +184,3 @@ const BlogsComponent: React.FC<props> = ({
 };
 
 export default BlogsComponent;
-
-

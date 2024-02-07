@@ -59,6 +59,7 @@ const BlogsScreen = () => {
             <BlogsComponent
               BlogData={blogs}
               page={pageNumber}
+              isMyBlogs={false}
               pageNumberChange={pageNumberChange}
             />
           )}
