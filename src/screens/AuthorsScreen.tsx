@@ -46,13 +46,23 @@ const AuthorsScreen = () => {
                 {item.About}
               </CardDescription>
             </CardContent>
-            <Link
+            <div className="link-container">
+                      <Link
                         color="blue"
                         className="button-default btn-detail"
                         to={`http://localhost:5173/Blogs/${item.UserId}`}
                       >
                         Blogs
                       </Link>
+                      <Link
+                        color="blue"
+                        className="button-default"
+                        target="_blank"
+                        to={`http://localhost:5173/Profile/${item.id}`}
+                      >
+                        Profile
+                      </Link>
+                    </div>
           </Card>
         </Grid.Column>
       ));

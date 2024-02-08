@@ -29,7 +29,6 @@ const BlogsComponent: React.FC<props> = ({
   const [pageLoading, setPageLoading] = useState<boolean>(false);
   const [deleteBlogMutation] = useBlogDeleteMutation();
   let [itemsToDisplay, setItemsToDisplay] = useState<Blog[]>(BlogData);
-
   let navigate = useNavigate();
 
   const navigateToUpdate = (id: number) => {

@@ -19,7 +19,7 @@ const BlogDetailScreen = () => {
           <Grid>
             <GridRow centered>
               <Card className='fullScreenContainer'>
-                <CardContent style={{padding:"10px",fontSize:"1.2rem"}} header={data?.Title} />
+                <CardContent style={{padding:"10px",fontSize:"1.5rem"}} header={data?.Title} />
                 <Card.Description style={{padding:"20px"}} dangerouslySetInnerHTML={{ __html: data.Detail }}></Card.Description>
                 <CardContent extra>
                   <Icon name='user' />{data?.Author}
