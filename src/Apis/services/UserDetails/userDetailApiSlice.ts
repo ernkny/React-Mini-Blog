@@ -1,5 +1,5 @@
 import { UserDetail } from "../../../types/UserDetail";
-import { apiSlice } from "../ApiSlice";
+import { apiSlice } from "../apiSlice";
 
 export const userDetailApiSlice=apiSlice.injectEndpoints({
     endpoints:builder=>({

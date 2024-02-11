@@ -14,6 +14,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import ProfileScreen from "../screens/ProfileScreen";
 import MyBlogsScreen from "../screens/MyBlogsScreen";
 import AllBlogsScreen from "../screens/AllBlogsScreen";
+import MyProfileScreen from "../screens/MyProfileScreen";
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -35,7 +36,7 @@ const MainRoutes = () => {
               <Route path="/BlogUpdate/:id" Component={BlogUpdateScreen} />
               <Route path="/Authors" Component={AuthorsScreen} />
               <Route path="/Blogs/:id" Component={BlogsScreen} />
-              <Route path="/Profile" Component={ProfileScreen} />
+              <Route path="/Profile" Component={MyProfileScreen} />
               <Route path="/Profile/:id" Component={ProfileScreen} />
             </Route>
           <Route path="/Login" Component={LoginScreen} />

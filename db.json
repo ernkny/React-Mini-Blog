@@ -341,7 +341,7 @@
       "Surname": "Kınay",
       "Age": "25",
       "About": "Best writer in the world",
-      "ImageUrl": "src/pictures/2.png"
+      "ImageUrl": "/src/pictures/2.png"
     },
     {
       "id": 2,
@@ -350,7 +350,7 @@
       "Surname": "Kınay",
       "Age": "25",
       "About": "Best writer in the worldss",
-      "ImageUrl": "src/pictures/1.png"
+      "ImageUrl": "/src/pictures/1.png"
     },
     {
       "id": 3,
@@ -359,7 +359,7 @@
       "Surname": "Kınay",
       "Age": "25",
       "About": "Best writer in the world",
-      "ImageUrl": "src/pictures/3.png"
+      "ImageUrl": "/src/pictures/3.png"
     },
     {
       "id": 4,
@@ -368,7 +368,7 @@
       "Surname": "Kınay",
       "Age": "25",
       "About": "Best writer in the world",
-      "ImageUrl": "src/pictures/1.png"
+      "ImageUrl": "/src/pictures/1.png"
     }
   ]
 }

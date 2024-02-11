@@ -19,4 +19,4 @@ export const userApiSlice=apiSlice.injectEndpoints({
     })
 })
 
-export const { useGetUsersQuery,useGetAllUsersQuery } = userApiSlice;
+export const { useGetUsersQuery,useGetAllUsersQuery,useGetUserQuery } = userApiSlice;
