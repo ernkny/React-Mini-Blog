@@ -340,6 +340,7 @@
       "Name": "Eren",
       "Surname": "Kınay",
       "Age": "25",
+      "City":"Istanbul",
       "About": "Best writer in the world",
       "ImageUrl": "/src/pictures/2.png"
     },
@@ -349,6 +350,7 @@
       "Name": "Fatih",
       "Surname": "Kınay",
       "Age": "25",
+      "City":"Istanbul",
       "About": "Best writer in the worldss",
       "ImageUrl": "/src/pictures/1.png"
     },
@@ -358,6 +360,7 @@
       "Name": "Can",
       "Surname": "Kınay",
       "Age": "25",
+      "City":"Istanbul",
       "About": "Best writer in the world",
       "ImageUrl": "/src/pictures/3.png"
     },
@@ -367,6 +370,7 @@
       "Name": "Gizem Nur",
       "Surname": "Kınay",
       "Age": "25",
+      "City":"Istanbul",
       "About": "Best writer in the world",
       "ImageUrl": "/src/pictures/1.png"
     }

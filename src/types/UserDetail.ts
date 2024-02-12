@@ -4,6 +4,7 @@ export type UserDetail={
     Name: string;
     Surname: string;
     Age: number;
+    City:string;
     About: string;
     ImageUrl:string;
 
