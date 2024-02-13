@@ -1,6 +1,10 @@
 #root {
   margin: 0 auto;
   text-align: center;
+  
+}
+.App{
+  min-height: 610px !important;
 }
 div.field > p{
     text-align: center;

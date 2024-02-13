@@ -15,6 +15,7 @@ import ProfileScreen from "../screens/ProfileScreen";
 import MyBlogsScreen from "../screens/MyBlogsScreen";
 import AllBlogsScreen from "../screens/AllBlogsScreen";
 import MyProfileScreen from "../screens/MyProfileScreen";
+import DashboardScreen from "../screens/DashboardScreen";
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const MainRoutes = () => {
               <Layout />
             </ProtectedRoute>
           }>
+              <Route path="/" Component={DashboardScreen} />
               <Route path="/AllBlogs" Component={AllBlogsScreen} />
               <Route path="/MyBlogs" Component={MyBlogsScreen} />
               <Route path="/BlogDetail/:id" Component={BlogDetailScreen} />
